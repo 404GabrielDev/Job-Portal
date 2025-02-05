@@ -165,4 +165,5 @@ export const JobsContextProvider = ({children}) => {
     }}>{children}</JobsContext.Provider>
 }
 
-export default JobsContext;
+export {JobsContext};
+export default JobsContextProvider;

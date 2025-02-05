@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
-import Home from "./components/page/page"
+import Header from "./components/Header/Header"
+import SectionFind from "./components/sectionFindJob/SectionFind"
 function App() {
 
   return (
     <>
-      <Home />
+      <Header />
+      <SectionFind />
     </>
   )
 }

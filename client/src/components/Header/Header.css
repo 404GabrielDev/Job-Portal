@@ -1,0 +1,65 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
+
+.iconBusiness {
+  max-width: 100px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li {
+  cursor: pointer;
+}
+
+#nav-profile {
+  cursor: pointer;
+  text-align: center;
+}
+
+#nav-profile button {
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-login {
+  cursor: pointer;
+  border: none;
+  border: 2px solid red;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #35daff;
+  color: #000;
+}
+
+.container-dropDown {
+  display: none;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  gap: 0.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+
+}
+
+.container-dropDown.visible {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.container-dropDown button {
+  cursor: pointer;
+  padding: 0.5rem;
+}

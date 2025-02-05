@@ -1,13 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const GlobalContext = createContext();
+import GlobalContext from "./GlobalContext.js";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
-export const GlobalContextProvider = ({ children }) => {
+ const GlobalContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +20,8 @@ export const GlobalContextProvider = ({ children }) => {
       try {
         const res = await axios.get("/api/v1/check-auth");
         console.log(res.data);
-        setIsAuthenticated(res.data.isAuthenticated);
+        setIsAuthenticated(res.data.auth);
+        console.log("Resultado de isAuthenticated, data", res.data)
         setAuth0User(res.data.user);
         setLoading(false);
       } catch (error) {
@@ -65,4 +65,4 @@ export const GlobalContextProvider = ({ children }) => {
   );
 };
 
-export default GlobalContext;
+export default GlobalContextProvider;

@@ -1,0 +1,126 @@
+.container-searchJobs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.inputSearchJobs {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.inputSearchJobs input {
+    width: 25rem;
+    height: 2.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.inputSearchJobs button {
+    width: 10rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #11a4ff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.inputSearchJobs button:hover {
+    background-color: #000;
+    color: #f70;
+    scale: 1.1;
+}
+
+#title-mainCards {
+    text-align: center;
+}
+
+.Card {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    background-color: #fff;
+}
+
+.Card button {
+    width: 12rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #11a4ff;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.Card button:hover {
+    background-color: #000;
+    color: #f60;
+    scale: 1.1;
+}
+
+.container-titleCards {
+    text-align: center;
+}
+
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#textBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+#textBottom p {
+    border: 2px solid #7e7e7e;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    width: 40%;
+    text-align: center;
+}
+
+.container-getStarted {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 3rem;
+    background-color: rgb(151, 199, 240);
+}
+
+.buttons-getStarted {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttons-getStarted button {
+    width: 12rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: rgb(239, 133, 62);
+    color: #000;
+    transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.buttons-getStarted button:hover {
+    color: #fff;
+    background-color: #000;
+    scale: 1.1;
+}
