@@ -1,6 +1,6 @@
-import "./Section.css";
+import './main.css'
 
-const SectionFind = () => {
+const Home = () => {
   const Card = ({
     image,
     title,
@@ -104,4 +104,4 @@ const SectionFind = () => {
   );
 };
 
-export default SectionFind;
+export default Home;

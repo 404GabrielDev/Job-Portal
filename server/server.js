@@ -20,7 +20,21 @@ const config = {
   secret: process.env.SECRET,
   baseURL: process.env.BASE_URL,
   clientID: process.env.CLIENT_ID,
-  issuerBaseURL: process.env.ISSUER_BASE_URL
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+  routes:{
+    postLogoutRedirect:process.env.CLIENT_URL,
+    callback:'/callback',
+    logout:'/logout',
+    login:"/login",
+  },
+  session: {
+    absoluteDuration: 30 * 24 * 60 * 60 * 1000,
+    cookie: {
+        domain: "localhost",
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: "None",
+      },
+  }
 };
 app.use(cors({
     origin: process.env.CLIENT_URL,

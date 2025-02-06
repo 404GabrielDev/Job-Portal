@@ -19,10 +19,11 @@ axios.defaults.withCredentials = true;
       setLoading(true);
       try {
         const res = await axios.get("/api/v1/check-auth");
-        console.log(res.data);
+        console.log("mostrando o que tem em data", res.data);
         setIsAuthenticated(res.data.auth);
-        console.log("Resultado de isAuthenticated, data", res.data)
+        console.log("Resultado de isAuthenticated, data", res.data.auth)
         setAuth0User(res.data.user);
+        console.log("Resultado de res.data.user", res.data.user)
         setLoading(false);
       } catch (error) {
         console.log("Erro ao checar autenticação", error);
@@ -54,8 +55,11 @@ axios.defaults.withCredentials = true;
     <GlobalContext.Provider
       value={{
         isAuthenticated,
+        setIsAuthenticated,
         auth0User,
+        setAuth0User,
         userProfile,
+        setUserProfile,
         getUserProfile,
         loading,
       }}

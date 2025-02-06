@@ -20,8 +20,8 @@ header {
 }
 
 #nav-profile {
-  cursor: pointer;
   text-align: center;
+  width: 13rem;
 }
 
 #nav-profile button {
@@ -33,14 +33,19 @@ header {
 .nav-login {
   cursor: pointer;
   border: none;
-  border: 2px solid red;
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #35daff;
   color: #000;
 }
 
+.container-allDropdown {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
 .container-dropDown {
+  text-align: center;
   display: none;
   flex-direction: column;
   margin-top: 0.5rem;
@@ -62,4 +67,25 @@ header {
 .container-dropDown button {
   cursor: pointer;
   padding: 0.5rem;
+}
+
+.container-nameProfile p:first-child {
+  font-weight: bold;
+}
+
+.container-configProfile {
+  width: 100%;
+}
+
+.container-configProfile li {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.container-configProfile img {
+  max-width: 20px;
 }
