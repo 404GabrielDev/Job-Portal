@@ -83,7 +83,7 @@ const Header = () => {
           <Link to="/myjobs">Meus trabalhos</Link>
         </li>
         <li>
-          <Link to="/postjob">Postar Vagas</Link>
+          <Link to="/post">Postar Vagas</Link>
         </li>
       </ul>
 

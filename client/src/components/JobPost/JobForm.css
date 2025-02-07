@@ -1,0 +1,80 @@
+/* Estilizando o botão normalmente */
+
+.container-pageAll {
+  display: flex;
+  gap: 1rem;
+}
+
+.container-sections {
+  max-width: 160px;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  border: 2px solid red;
+}
+
+.container-buttonsSection {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.container-buttonsSection p {
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: gray;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Quando o botão está ativo (selecionado), muda a cor */
+.button.active {
+  color: #7263f3; /* Cor roxa */
+  font-weight: bold;
+}
+
+/* Círculo ao redor do número do índice */
+.circle {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid gray;
+  color: gray;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+/* Quando o botão está ativo, muda a cor do círculo */
+.circle.selected {
+  background-color: #7263f3; /* Fundo roxo */
+  color: white; /* Texto branco */
+  border-color: #7263f3;
+}
+
+.container-formDetails {
+  max-height: 100px;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.container-formDetails button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #7263f3;
+  background-color: #4ec5f4;
+}
