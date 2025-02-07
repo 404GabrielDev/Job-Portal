@@ -11,7 +11,7 @@ const JobForm = () => {
     jobTitle,
     jobDescription,
     salaryType,
-    activeEmploymentTypes,
+    activeEmployementTypes,
     salary,
     location,
     skills,
@@ -45,7 +45,7 @@ const JobForm = () => {
   const getCompletedcolor = (section) => {
     switch (section) {
       case "About":
-        return jobTitle && activeEmploymentTypes.length > 0
+        return jobTitle && activeEmployementTypes.length > 0
           ? "#7263f3"
           : "gray";
 

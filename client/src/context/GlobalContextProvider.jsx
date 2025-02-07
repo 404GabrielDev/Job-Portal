@@ -94,6 +94,7 @@ const GlobalContextProvider = ({ children }) => {
         getUserProfile,
         loading,
         jobTitle,
+        setJobTitle,
         jobDescription,
         salary,
         activeEmployementTypes,
