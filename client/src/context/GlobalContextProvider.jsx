@@ -24,6 +24,7 @@ const GlobalContextProvider = ({ children }) => {
   const [negotiable, setNegotiable] = useState(false);
   const [tags, setTags] = useState([]);
   const [skills, setSkills] = useState([]);
+  const[hideSalary, setHideSalary] = useState(false)
   const [Location, setLocation] = useState(
     {
       country:"",
@@ -96,6 +97,7 @@ const GlobalContextProvider = ({ children }) => {
         jobTitle,
         setJobTitle,
         jobDescription,
+        setJobDescription,
         salary,
         activeEmployementTypes,
         salaryType,
@@ -106,7 +108,11 @@ const GlobalContextProvider = ({ children }) => {
         handleTitleChange,
         handleDescriptionChange,
         handleSalaryChange,
-        setActiveEmployementTypes
+        setActiveEmployementTypes,
+        setSalaryType,
+        setNegotiable,
+        hideSalary,
+        setHideSalary,
       }}
     >
       {children}

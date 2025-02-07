@@ -100,7 +100,7 @@ const JobForm = () => {
         <section className="container-formDetails">
           <form action="">
             {renderStages()}
-            <div>
+            <div id="button-nextSections">
               {currentSection !== "Summary" && (
                 <button
                   onClick={() => {
