@@ -113,9 +113,9 @@ const GlobalContextProvider = ({ children }) => {
         setNegotiable,
         hideSalary,
         setHideSalary,
-        setNegotiable,
         setTags,
         setSkills,
+        setLocation,
       }}
     >
       {children}
