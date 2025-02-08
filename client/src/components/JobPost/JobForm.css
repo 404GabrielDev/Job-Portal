@@ -68,7 +68,7 @@
   border-radius: 1rem;
 }
 
-.container-formDetails button {
+#button-next {
   width: 12rem;
   height: 2rem;
   padding: 0.5rem;
@@ -81,7 +81,7 @@
   transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
 }
 
-.container-formDetails button:hover {
+#button-next:hover{
   background-color: #000;
   color: #f60;
   scale: 1.1;

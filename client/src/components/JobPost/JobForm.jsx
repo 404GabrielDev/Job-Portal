@@ -103,6 +103,7 @@ const JobForm = () => {
             <div id="button-nextSections">
               {currentSection !== "Summary" && (
                 <button
+                id="button-next"
                   onClick={() => {
                     const currentIndex = sections.indexOf(currentSection);
 
