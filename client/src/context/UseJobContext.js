@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import JobsContext from "./jobsContext";
+import {JobsContext} from "./jobsContext";
 
-const UseJobsContext = () => {
+const UseJobContext = () => {
     return useContext(JobsContext)
 }
 
-export default UseJobsContext
+export default UseJobContext

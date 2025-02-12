@@ -9,7 +9,7 @@ axios.defaults.withCredentials = true;
 const GlobalContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [globalisAuthenticated, setIsAuthenticated] = useState(false);
   const [auth0User, setAuth0User] = useState(null);
   const [userProfile, setUserProfile] = useState({});
   const [loading, setLoading] = useState(false);
@@ -37,8 +37,9 @@ const GlobalContextProvider = ({ children }) => {
     const checkAuth = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("/api/v1/check-auth");
+        const res = await axios.get("/api/v1/check-auth", {credentials: "include"});
         setIsAuthenticated(res.data.auth);
+        console.log("informações aqui:", res.data, globalisAuthenticated)
         setAuth0User(res.data.user);
         setLoading(false);
       } catch (error) {
@@ -78,15 +79,15 @@ const GlobalContextProvider = ({ children }) => {
 
 
   useEffect(() => {
-    if (isAuthenticated && auth0User) {
+    if (globalisAuthenticated && auth0User) {
       getUserProfile(auth0User.sub);
     }
-  }, [isAuthenticated, auth0User]);
+  }, [globalisAuthenticated, auth0User]);
 
   return (
     <GlobalContext.Provider
       value={{
-        isAuthenticated,
+        globalisAuthenticated,
         setIsAuthenticated,
         auth0User,
         setAuth0User,

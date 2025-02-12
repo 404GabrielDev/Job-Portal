@@ -1,5 +1,5 @@
 import React, {Children, createContext, useContext, useEffect, useState} from "react";
-import UseGlobalContext from "./UseContext";
+import useGlobalContext from "./UseContext";
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 
@@ -9,7 +9,7 @@ axios.defaults.baseURL = "http://localhost:8000"
 axios.defaults.withCredentials = true
 
 export const JobsContextProvider = ({children}) => {
-    const {userProfile} = UseGlobalContext()
+    const {userProfile} = useGlobalContext()
 
     const [jobs, setJobs] = useState([])
     const[loading, setLoading] = useState(false)

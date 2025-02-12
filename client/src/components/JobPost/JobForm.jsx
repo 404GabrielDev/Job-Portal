@@ -5,6 +5,7 @@ import JobDetails from "./JobDetails";
 import JobLocation from "./JobLocation";
 import JobSkills from "./JobSkills";
 import JobTitle from "./JobTitle";
+import useJobContext from '../../context/UseJobContext'
 
 const JobForm = () => {
   const {
@@ -18,6 +19,8 @@ const JobForm = () => {
     negotiable,
     tags,
   } = useGlobalContext();
+
+  const{createJob} = useJobContext()
 
   const sections = ["About", "Job Details", "Skills", "Location", "Summary"];
   const [currentSection, setCurrentSection] = React.useState(sections[0]);
@@ -62,6 +65,24 @@ const JobForm = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    createJob(
+      {
+        title: jobTitle,
+        description: jobDescription,
+        salaryType,
+        jobType: activeEmployementTypes,
+        salary,
+        location: `${location.address}, ${location.city}, ${location.country}`,
+        skills,
+        negotiable,
+        tags,
+      }
+    )
+    
+  }
+
   return (
     <>
       <div>
@@ -98,7 +119,7 @@ const JobForm = () => {
         </div>
 
         <section className="container-formDetails">
-          <form action="">
+          <form action="" onSubmit={handleSubmit}>
             {renderStages()}
             <div id="button-nextSections">
               {currentSection !== "Summary" && (

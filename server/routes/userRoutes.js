@@ -1,5 +1,7 @@
 import express from 'express'
 import { getUserProfile } from '../controllers/userController.js'
+import {auth} from 'express-openid-connect'
+
 
 const router = express.Router()
 
@@ -11,9 +13,18 @@ router.get('/check-auth', (req, res) => {
             user: req.oidc.user
         })
     } else {
-        return res.status(200).json(false)
+        return res.status(200).json({
+            isAuthenticated: false
+        })
     }
 })
+
+router.get('/login', (req, res) => {
+    res.oidc.login({
+        returnTo: process.env.CLIENT_URL, // Redirecionar de volta ao frontend após o login
+    });
+});
+
 
 router.get('/user/:id', getUserProfile);
 

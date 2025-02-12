@@ -3,10 +3,14 @@ import useGlobalContext from "../../context/UseContext";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+
+  const {getAccessTokenSilently, loginWithPopup, loginWithRedirect, logout, user, isAuthenticated} = useAuth0()
+
   const {
-    isAuthenticated,
+    globalisAuthenticated,
     setIsAuthenticated,
     userProfile,
     setUserProfile,
@@ -23,45 +27,33 @@ const Header = () => {
 
   const { profilePicture, name, profession, email } = userProfile;
 
-  console.log("Dados de userProfile aqui:", userProfile);
+  /*const loginUrl = `https://${
+    import.meta.env.VITE_AUTH0_DOMAIN
+  }/authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${
+    import.meta.env.VITE_CLIENT_URL
+  }/callback`;*/
 
-  const loginUrl = `https://${
-    import.meta.VITE_AUTH0_DOMAIN
-  }/authorize?client_id=${import.meta.VITE_CLIENT_ID}&redirect_uri=${
-    import.meta.VITE_CLIENT_URL
-  }/callback`;
 
-  console.log("informações do user profile aqui:", userProfile);
-
-  const handleLogout = () => {
-    // Limpar as informações locais de usuário
-    setUserProfile({});
-    setIsAuthenticated(false);
-    setAuth0User(false);
-
-    // URL de logout do Auth0
-    //const logoutURL = `https://${import.meta.env.VITE_AUTH0_DOMAIN}/v2/logout?client_id=${import.meta.env.VITE_CLIENT_ID}&returnTo=${import.meta.env.VITE_CLIENT_URL}`;
-    //const logoutURL = `https://dev-hd4hv8571vxyorpp.us.auth0.com/logout`;
-
-    // Redirecionar para o Auth0 para fazer o logout
-    //window.location.href = logoutURL;
-
-    navigate('/')
-  };
-
-  const handleLogin = async () => {
-    const domain = import.meta.env.VITE_AUTH0_DOMAIN;
-    const clientId = import.meta.env.VITE_CLIENT_ID;
-    const redirectUri = `${import.meta.env.VITE_CLIENT_URL}/callback`
-
-    const loginURL = `https://${domain}/authorize?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}`;
-    console.log("URL DO LOGIN AQUI:", loginUrl)
+  const fetchProtectData = async () => {
     try {
-      window.location.href = loginURL;
+      const token = await getAccessTokenSilently()
+      console.log("Acesso ao token", token)
+
+      const response = await fetch("http://localhost:8000/callback", {
+        method:"GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      const data = await response.json()
+      console.log("Dados protegidos", data)
     } catch (error) {
-      console.error("Erro:", error);
+      console.error("Erro ao buscar dados protegidos", error)
     }
-  };
+  }
+
+  
 
   return (
     <header>
@@ -87,7 +79,7 @@ const Header = () => {
         </li>
       </ul>
 
-      {isAuthenticated ? (
+      {globalisAuthenticated ? (
         <>
           <div className="container-allDropdown">
             <div id="nav-profile" onClick={toggleDropDown}>
@@ -109,7 +101,7 @@ const Header = () => {
                   </li>
                   <li>
                     <img src="/logout.png" />
-                    <p onClick={handleLogout}>Logout</p>
+                    <p onClick={() => logout({returnTo: "http://localhost:5173"})}>Logout</p>
                   </li>
                 </ul>
               </div>
@@ -118,9 +110,7 @@ const Header = () => {
         </>
       ) : (
         <>
-          <Link onClick={handleLogin} className="nav-login">
-            Login com o google
-          </Link>
+          <button onClick={() => loginWithRedirect()}>Login com a logica handle</button>
           <button className="nav-login">Register</button>
         </>
       )}
