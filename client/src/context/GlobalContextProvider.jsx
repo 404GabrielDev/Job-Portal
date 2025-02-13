@@ -24,22 +24,21 @@ const GlobalContextProvider = ({ children }) => {
   const [negotiable, setNegotiable] = useState(false);
   const [tags, setTags] = useState([]);
   const [skills, setSkills] = useState([]);
-  const[hideSalary, setHideSalary] = useState(false)
-  const [Location, setLocation] = useState(
-    {
-      country:"",
-      city:"",
-      address:"",
-    }
-  );
+  const [hideSalary, setHideSalary] = useState(false);
+  const [location, setLocation] = useState({
+    country: "",
+    city: "",
+    address: "",
+  });
 
   useEffect(() => {
     const checkAuth = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("/api/v1/check-auth", {credentials: "include"});
-        setIsAuthenticated(res.data.auth);
-        console.log("informações aqui:", res.data, globalisAuthenticated)
+        const res = await axios.get("/api/v1/check-auth", {
+          credentials: "include",
+        });
+        setIsAuthenticated(res.data.isAuthenticated);
         setAuth0User(res.data.user);
         setLoading(false);
       } catch (error) {
@@ -62,21 +61,18 @@ const GlobalContextProvider = ({ children }) => {
     }
   };
 
-
   //mudanças de input
   const handleTitleChange = (e) => {
     setJobTitle(e.target.value.trimStart());
-  }
+  };
 
   const handleDescriptionChange = (e) => {
-    setJobDescription(e.target.value.trimStart())
-  }
+    setJobDescription(e.target.value.trimStart());
+  };
 
   const handleSalaryChange = (e) => {
-    setSalary(e.target.value)
-  }
-
-
+    setSalary(e.target.value);
+  };
 
   useEffect(() => {
     if (globalisAuthenticated && auth0User) {

@@ -80,11 +80,10 @@ app.get("/", async (req, res) => {
 
     return res.redirect(process.env.CLIENT_URL)
   }else {
-    return res.send("Logged out")
+    console.log("Deslogado com sucesso!")
+    return res.redirect(process.env.CLIENT_URL)
   }
 })
-
-
 
 app.get("/profile", requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user, null, 2));

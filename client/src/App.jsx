@@ -6,10 +6,12 @@ import SearchJobs from "./components/SearchJobs/SearchJobs"
 import {Routes, Route} from 'react-router-dom'
 import Callback from "./components/Callback/Callback"
 import JobForm from "./components/JobPost/JobForm"
+import { Toaster } from "react-hot-toast"
 function App() {
 
   return (
     <>
+      <Toaster position="top-right" reverseOrder={true} />
       <Header />
       <Routes>
         <Route path="/myjobs" element={<MyJobs />} />
