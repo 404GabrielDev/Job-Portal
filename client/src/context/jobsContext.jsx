@@ -134,7 +134,7 @@ export const JobsContextProvider = ({ children }) => {
     try {
       await axios.delete(`/api/v1/jobs/${jobId}`);
       setJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
-      searchJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
+      setUserJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
       toast.success("Emprego deletado com sucesso!");
       if (userProfile._id) {
         setUserJobs((prevUserJobs) =>

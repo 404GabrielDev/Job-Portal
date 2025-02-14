@@ -1,0 +1,36 @@
+.button-topMyJobs {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.border {
+  height: 2.5rem;
+  border-radius: 1rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.border:hover {
+    background-color: #000;
+    color: #f60;
+    scale: 1.1;
+}
+
+.border-transparent {
+  border-color: transparent; /* Remove a borda quando ativo */
+  background-color: rgb(131, 83, 255);
+  color: #fff;
+}
+
+.border-gray {
+  border-color: gray; /* Borda cinza quando inativo */
+  background-color: #fff;
+  color: #000;
+  
+}

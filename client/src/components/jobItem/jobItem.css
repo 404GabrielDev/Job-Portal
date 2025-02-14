@@ -1,0 +1,46 @@
+.card-jobItem {
+  border: 1px solid rgb(68, 255, 0);
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+/* Faz o card ocupar o espaço restante */
+}
+
+.container-jobCardItem {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+}
+
+.requeriments-skills {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.requeriments-skills p {
+  border: 2px solid rgb(92, 182, 255);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  background-color: aliceblue;
+}
+
+.container-iconEdit {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.container-iconEdit img {
+  cursor: pointer;
+  transition: scale 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container-iconEdit img:hover {
+  scale: 1.1;
+  box-shadow: 5px 5px 10px #f60;
+}
