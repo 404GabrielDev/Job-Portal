@@ -7,6 +7,7 @@ import {Routes, Route} from 'react-router-dom'
 import Callback from "./components/Callback/Callback"
 import JobForm from "./components/JobPost/JobForm"
 import { Toaster } from "react-hot-toast"
+import Page from './components/jobs/[[id]]/Page'
 function App() {
 
   return (
@@ -15,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/myjobs" element={<MyJobs />} />
-        <Route path="/searchjobs" element={<SearchJobs />} />
+        <Route path="/jobs/:id" element={<Page />} />
         <Route path="/" element={<Home />} />
         <Route path="/callback" element={<Callback />} />
         <Route path="/post" element={<JobForm />} />

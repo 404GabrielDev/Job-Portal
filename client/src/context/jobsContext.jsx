@@ -48,7 +48,7 @@ export const JobsContextProvider = ({ children }) => {
       toast.success("Trabalho Criado com sucesso!");
     } catch (error) {
       console.log("Erro ao criar um emprego", error);
-      toast.error("Erro ao criar o trabalho")
+      toast.error("Erro ao criar o trabalho");
     }
   };
 
@@ -167,6 +167,7 @@ export const JobsContextProvider = ({ children }) => {
         likeJob,
         applyToJob,
         deleteJob,
+        searchJobs,
       }}
     >
       {children}

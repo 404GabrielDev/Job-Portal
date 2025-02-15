@@ -1,0 +1,70 @@
+.job-card {
+  padding: 1rem; /* Equivalente ao p-8 (8 * 0.25rem = 2rem, mas usei 1rem para ajuste) */
+  border-radius: 8px; /* Equivalente ao rounded-xl */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Equivalente ao gap-5 */
+  background-color: white; /* Padrão, equivalente ao bg-white */
+  transition: all 0.3s ease-in-out;
+  width: 45%;
+}
+
+.job-card.active {
+  background-color: #f9fafb; /* Equivalente ao bg-gray-50 */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Equivalente ao shadow-md */
+  border-bottom: 2px solid #7263f3; /* Equivalente ao border-b-2 border-[#7263f3] */
+}
+
+.container-cardDetails1 {
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.container-cardDetails2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/*estilizando o switch*/
+
+.full-time {
+  background-color: rgba(40, 167, 69, 0.2); /* Verde claro */
+  color: #28a745; /* Verde forte */
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.part-time {
+  background-color: rgba(128, 0, 128, 0.2); /* Roxo claro */
+  color: purple;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.contract {
+  background-color: rgba(255, 0, 0, 0.2); /* Vermelho claro */
+  color: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.internship {
+  background-color: rgba(75, 0, 130, 0.2); /* Azul escuro claro */
+  color: indigo;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.default {
+  background-color: rgba(128, 128, 128, 0.2); /* Cinza claro */
+  color: gray;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}

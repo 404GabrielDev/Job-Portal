@@ -79,7 +79,7 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link to="/home">
+        <Link to="/">
           <img
             className="iconBusiness"
             src="businessman.png"
