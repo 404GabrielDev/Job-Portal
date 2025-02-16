@@ -79,10 +79,14 @@ const JobCard = ({ job, activeJob }) => {
           </div>
 
           <div className="container-cardDetails2">
-            <p>
-              {name} {applicants.length}{" "}
-              {applicants.length > 1 ? "Applicants" : "Applicant"}
-            </p>
+            <div className="container-nameLike">
+              <p className="name-profile">{name}</p>
+
+              <p>
+                {applicants.length}{" "}
+                {applicants.length > 1 ? "Applicants" : "Applicant"}
+              </p>
+            </div>
 
             <button
               onClick={() => {
@@ -93,15 +97,15 @@ const JobCard = ({ job, activeJob }) => {
               style={{ color: isLiked ? "#000" : "#fff" }}
             >
               {isLiked ? (
-                <img style={{ maxWidth: "20px" }} src="./iconSave.png" />
+                <img style={{ width: "20px", height:"20px" }} src="./iconSave.png" />
               ) : (
-                <img style={{ maxWidth: "20px" }} src="/iconSave.png" />
+                <img style={{ width: "20px", height:"20px" }} src="/iconSave.png" />
               )}
             </button>
           </div>
         </div>
       </div>
-      <div>
+      <div className="jobTypeBg">
         {jobType.map((type, index) => (
           <span key={index} className={jobTypeBg(type)}>
             {type}

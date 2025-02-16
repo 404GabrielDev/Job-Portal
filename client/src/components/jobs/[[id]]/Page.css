@@ -1,0 +1,186 @@
+.container-alldescriptionJob {
+  width: 100%;
+  border: 2px solid rgb(56, 128, 164);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+
+.container-allDescription {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.container-descriptionJobClick {
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-descriptionJob {
+    display: flex;
+    align-items: center;
+}
+
+.btn-liked {
+  border-radius: 0.5rem;
+  padding: 0;
+  cursor: pointer;
+  transition: border 0.5s ease, scale 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-liked:hover {
+  scale: 1.3;
+}
+
+.btn-not-liked {
+  padding: 0;
+  cursor: pointer;
+  transition: border 0.5s ease, scale 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 3rem;
+}
+
+.btn-not-liked:hover {
+  scale: 1.3;
+}
+
+.container-descriptionJob-s1 {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.container-descriptionJob-s1 img {
+  border-radius: 50%;
+}
+
+.container-profile-save {
+  display: flex;
+  justify-content: space-between;
+  max-height: 5rem;
+}
+
+.descriptionDetail-Job {
+  padding: 0.5rem;
+}
+
+.descriptionDetail-Job p {
+  color: rgb(107, 107, 107);
+}
+
+/*cards, exibindo campos do salario/postado/inscrições/tipo de trabalho*/
+
+.container-cardFilds-information {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.cardFilds-information {
+  background-color: #43dc95;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 15rem;
+}
+
+.cardFilds-information2 {
+  width: 15rem;
+  background-color: #e685ed;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cardFilds-information3 {
+  width: 15rem;
+  background-color: #67c6e9;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cardFilds-information4 {
+  width: 15rem;
+  background-color: #d4dc43;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+/*------------------------------------------*/
+
+#htmlDescription ol {
+  list-style: none !important;
+  counter-reset: none !important;
+  padding-left: 0 !important;
+}
+#htmlDescription li {
+  counter-increment: none !important;
+}
+
+/*------------------------------------------------------*/
+
+/*3 section da pagina */
+
+.container-ApplyDetails-job {
+  border: 2px solid red;
+  padding: 1rem;
+  width: 40%;
+  text-align: center;
+}
+
+.aplicar {
+  background-color: #f70;
+  border: none;
+  border-radius: 0.5rem;
+  color: #000;
+  cursor: pointer;
+  width: 80%;
+  height: 2.5rem;
+  transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.aplicar:hover {
+  background-color: #000;
+  color: #fff;
+  scale: 1.1;
+}
+
+.aplicado {
+  background-color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  color: #f70;
+  cursor: pointer;
+  width: 80%;
+  height: 2.5rem;
+  transition: background-color 0.5s ease, color 0.5s ease, scale 0.5s ease;
+}
+
+.aplicado:hover {
+  background-color: #f70;
+  color: #000;
+  scale: 1.1;
+}

@@ -107,8 +107,10 @@ export const JobsContextProvider = ({ children }) => {
 
   //gostar de um emprego
   const likeJob = async (jobId) => {
+    console.log("Job Liked", jobId)
     try {
       const res = await axios.put(`/api/v1/jobs/like/${jobId}`);
+      console.log("Vaga favoritada com sucesso!", res.data)
       toast.success("Emprego favoritado com sucesso!");
       getJobs();
     } catch (error) {
