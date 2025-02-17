@@ -120,9 +120,15 @@ export const JobsContextProvider = ({ children }) => {
 
   //aplicar pra um emprego
   const applyToJob = async (jobId) => {
-    try {
-      const res = axios.put(`/api/v1/jobs/apply/${jobId}`);
+    const job = jobs.find(job => job._id === jobId);
 
+    if(job && job.applicants.includes(userProfile._id)) {
+      toast.error("Você já se candidatou pra essa vaga!");
+      return
+    }
+
+    try {
+      const res = await axios.put(`/api/v1/jobs/apply/${jobId}`);
       toast.success("Aplicado ao emprego com sucesso!");
       getJobs();
     } catch (error) {

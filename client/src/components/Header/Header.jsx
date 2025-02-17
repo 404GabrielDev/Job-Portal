@@ -82,7 +82,7 @@ const Header = () => {
         <Link to="/">
           <img
             className="iconBusiness"
-            src="businessman.png"
+            src="/businessman.png"
             alt="icone do site"
           />
         </Link>
@@ -117,11 +117,11 @@ const Header = () => {
                 </div>
                 <ul className="container-configProfile">
                   <li>
-                    <img src="/setting.png" />
+                    <img alt="setting" src="/setting.png" />
                     <p>Settings</p>
                   </li>
                   <li>
-                    <img src="/logout.png" />
+                    <img alt="logout" src="/logout.png" />
                     <a href={"http://localhost:8000/logout"}>Logout</a>
                   </li>
                 </ul>

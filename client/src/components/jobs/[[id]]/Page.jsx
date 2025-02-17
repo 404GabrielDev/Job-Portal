@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UseJobContext from "../../../context/UseJobContext";
 import JobCard from "../../jobItem/JobCard";
 import "./Page.css";
@@ -7,19 +7,26 @@ import UseGlobalContext from "../../../context/UseContext";
 import formatMoney from "../../../../utils/FormatMoney";
 import { formatDate } from "react-calendar/dist/esm/shared/dateFormatter.js";
 import { formatDates } from "../../../../utils/formatDates";
-
+import { toast } from "react-hot-toast";
 const Page = () => {
-  const { jobs, likeJob, applyJob } = UseJobContext();
-  const { userProfile } = UseGlobalContext();
+  const { jobs, likeJob, applyToJob } = UseJobContext();
+  const { userProfile, globalisAuthenticated } = UseGlobalContext();
   const params = useParams();
   const { id } = params;
 
-  const [isLiked, setIsLiked] = useState(false);
-  const [isApplied, setIsApplied] = useState(false)
+  const navigate = useNavigate();
 
+  const [isLiked, setIsLiked] = useState(false);
+  const [isApplied, setIsApplied] = useState(false);
 
   const job = jobs.find((job) => job._id === id);
   const otherJobs = jobs.filter((job) => job._id !== id);
+
+  useEffect(() => {
+    if (job) {
+      setIsApplied(job.applicants.includes(userProfile._id));
+    }
+  }, [job]);
 
   useEffect(() => {
     if (job) {
@@ -42,14 +49,14 @@ const Page = () => {
     applicants,
   } = job;
 
+  const isLikes = job.likes.includes(userProfile?._id);
+  //const isApplied = applicants.includes(userProfile?._Id)
+
   const { name, profilePicture } = createdBy;
 
   const handleLike = (id) => {
-    setIsLiked((prev) => !prev);
     likeJob(id);
   };
-
-
 
   return (
     <div>
@@ -69,6 +76,7 @@ const Page = () => {
                   src={profilePicture || "./profile-user.png"}
                   width={50}
                   height={50}
+                  alt="Foto-de-perfil"
                 />
 
                 <div>
@@ -79,15 +87,18 @@ const Page = () => {
             </div>
             <div
               className={isLiked ? "btn-liked" : "btn-not-liked"}
-              onClick={() => handleLike(job._id)}
+              onClick={() => {
+                globalisAuthenticated ? handleLike(job._id)
+                : navigate('http://localhost:8000/login')
+              }}
             >
               {isLiked ? (
                 <>
-                  <img style={{ width: "25px" }} src="/iconSave.png" />
+                  <img style={{ width: "25px" }} src="/bookmark.png" alt="BookMark" />
                 </>
               ) : (
                 <>
-                  <img style={{ width: "25px" }} src="/iconSave.png" />
+                  <img style={{ width: "25px" }} src="/iconSave.png" alt="BookMark" />
                 </>
               )}
             </div>
@@ -139,16 +150,91 @@ const Page = () => {
           </div>
           <h2>Job Description</h2>
 
-          <div className="wysiwy" id="htmlDescription" dangerouslySetInnerHTML={{ __html: description }}></div>
+          <div
+            className="wysiwy"
+            id="htmlDescription"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></div>
         </div>
 
         <div className="container-ApplyDetails-job">
-          <button className={`${isApplied ? "aplicado" : "aplicar"}`}>
-            {isApplied ? "Applied" : "Apply Now"}
-          </button>
-        </div>
+          <div className="container-btn-applyJob">
+            <button
+              className={`${isApplied ? "aplicado" : "aplicar"}`}
+              onClick={() => {
+                if (globalisAuthenticated) {
+                  if (!isApplied) {
+                    applyToJob(job._id);
+                    setIsApplied(true);
+                  } else {
+                    toast.error("Você já se candidatou pra essa vaga");
+                  }
+                } else {
+                  navigate("http://localhost:8000/login");
+                }
+              }}
+            >
+              {isApplied ? "Applied" : "Apply Now"}
+            </button>
+          </div>
 
-        
+          <div className="container-otherInformation">
+            <h3>Other Information</h3>
+
+            <div>
+              <p>
+                <span>Posted:</span>
+                {formatDates(createdAt)}
+              </p>
+            </div>
+
+            <p>
+              <span>Salary negotiable: </span>
+              <span
+                className={`${
+                  negotiable ? "negotiableGreen" : "negotiableRed"
+                }`}
+              >
+                {negotiable ? "Yes" : "No"}
+              </span>
+            </p>
+
+            <p>
+              <span>Location:</span> {location}
+            </p>
+
+            <p>
+              <span>Job Type :</span> {jobType.join(" - ")}
+            </p>
+          </div>
+
+          <div className="containerAll-elementSkills">
+            <h3>Tags</h3>
+            <p>Other Relevant tags for the job position</p>
+
+            <div className="containerElementTags">
+              {job.tags.map((tag, index) => (
+                <span id="elementTags" key={index}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="containerAll-elementSkills">
+            <h3>Skills</h3>
+            <p>This is a full-time position. the successful candidate will be responsible for the following</p>
+
+            <div className="containerElementSkills">
+              {job.skills.map((tag, index) => (
+                <span id="elementSkills" key={index}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

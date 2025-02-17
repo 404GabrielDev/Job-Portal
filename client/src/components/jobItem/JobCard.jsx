@@ -43,6 +43,10 @@ const JobCard = ({ job, activeJob }) => {
     setIsLiked(job.likes.includes(userProfile._id));
   }, [job.likes, userProfile._id]);
 
+  useEffect(() => {
+    setIsLiked(job.likes.includes(userProfile._id))
+  }, [job.likes, userProfile._id])
+
   const companyDescription =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed Ut purus eget nun";
 
@@ -97,9 +101,9 @@ const JobCard = ({ job, activeJob }) => {
               style={{ color: isLiked ? "#000" : "#fff" }}
             >
               {isLiked ? (
-                <img style={{ width: "20px", height:"20px" }} src="./iconSave.png" />
+                <img style={{ width: "20px", height:"20px" }} src="/bookmark.png" alt="BookMark" />
               ) : (
-                <img style={{ width: "20px", height:"20px" }} src="/iconSave.png" />
+                <img style={{ width: "20px", height:"20px" }} src="/iconSave.png" alt="BookMark" />
               )}
             </button>
           </div>
