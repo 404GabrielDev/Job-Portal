@@ -216,6 +216,7 @@ export const JobsContextProvider = ({ children }) => {
         setMaxSalary,
         setFilters,
         handleFilterChange,
+        setMinSalary
       }}
     >
       {children}

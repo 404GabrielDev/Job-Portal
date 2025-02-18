@@ -1,7 +1,8 @@
 import React from "react";
 import "./Filters.css";
 import UseJobContext from "../../context/UseJobContext";
-
+import SalarySlider from "../SalarySlider/SalarySlider";
+import FormatMoney from '../../../utils/FormatMoney'
 const Filters = () => {
   const { searchJobs } = UseJobContext();
 
@@ -33,19 +34,10 @@ const Filters = () => {
 
   //ultilizar isso com o slider
 
-  const handleMinSalaryChange = (value) => {
+  const handleSalaryChange = (value) => {
     setMinSalary(value[0]);
-    if(value[0] > maxSalary) {
-      setMaxSalary(value[0])
-    }
-  }
-
-  const handleMaxSalaryChange = (value) => {
-    setMaxSalary(value[0])
-    if(value[0] < minSalary) {
-      setMinSalary(value[0])
-    }
-  }
+    setMaxSalary(value[1]);
+  };
 
   return (
     <div>
@@ -154,7 +146,10 @@ const Filters = () => {
         <div>
           <label htmlFor="minSalary">Minimum Salary</label>
         </div>
+        <SalarySlider id="minSalary" onChange={handleSalaryChange} />
       </div>
+      <span>{FormatMoney(minSalary, "GBP")}</span>
+      <span>{FormatMoney(maxSalary, "GBP")}</span>
     </div>
   );
 };

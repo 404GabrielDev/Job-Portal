@@ -6,7 +6,8 @@ import JobLocation from "./JobLocation";
 import JobSkills from "./JobSkills";
 import JobTitle from "./JobTitle";
 import useJobContext from '../../context/UseJobContext'
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const JobForm = () => {
   const {
     jobTitle,
@@ -18,7 +19,17 @@ const JobForm = () => {
     skills,
     negotiable,
     tags,
+    globalisAuthenticated,
+    loading
   } = useGlobalContext();
+
+  useEffect(() => {
+      if(!loading && !globalisAuthenticated) {
+        window.location.href = 'http://localhost:8000/login'
+      }
+    }, [globalisAuthenticated])
+
+    console.log(globalisAuthenticated)
 
   const{createJob} = useJobContext()
 
@@ -28,6 +39,8 @@ const JobForm = () => {
   const handleSectionChange = (section) => {
     setCurrentSection(section);
   };
+
+  
 
   const renderStages = () => {
     switch (currentSection) {

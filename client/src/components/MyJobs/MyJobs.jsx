@@ -1,6 +1,6 @@
 import "./MyJobs.css";
 import useJobContext from "../../context/UseJobContext";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UseGlobalContext from "../../context/UseContext";
 import { useNavigate } from "react-router-dom";
 import JobItem from '../jobItem/JobItem'
@@ -13,7 +13,12 @@ const MyJobs = () => {
 
   const userId = userProfile?.id;
 
-  const navigate = useNavigate();
+
+  useEffect(() => {
+        if(!loading && !globalisAuthenticated) {
+          window.location.href = 'http://localhost:8000/login'
+        }
+      }, [globalisAuthenticated])
 
   //redirecionar pro login, se não estiver autenticado
   const likedJobs = jobs.filter((job) => {
