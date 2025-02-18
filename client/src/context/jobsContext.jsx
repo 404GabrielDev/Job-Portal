@@ -21,6 +21,28 @@ export const JobsContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [userJobs, setUserJobs] = useState([]);
 
+  const [searchQuery, setSearchQuery] = useState({
+    tags: "",
+    location: "",
+    title: "",
+  });
+
+  //filters
+  const [filters, setFilters] = useState({
+    fulltime: false,
+    partTime: false,
+    internship: false,
+    contract: false,
+    fullstack: false,
+    backend: false,
+    devOps: false,
+    uiux: false,
+  });
+
+  const [minSalary, setMinSalary] = useState(30000);
+  const [maxSalary, setMaxSalary] = useState(120000);
+
+  //get all jobs
   const getJobs = async () => {
     setLoading(true);
 
@@ -107,10 +129,10 @@ export const JobsContextProvider = ({ children }) => {
 
   //gostar de um emprego
   const likeJob = async (jobId) => {
-    console.log("Job Liked", jobId)
+    console.log("Job Liked", jobId);
     try {
       const res = await axios.put(`/api/v1/jobs/like/${jobId}`);
-      console.log("Vaga favoritada com sucesso!", res.data)
+      console.log("Vaga favoritada com sucesso!", res.data);
       toast.success("Emprego favoritado com sucesso!");
       getJobs();
     } catch (error) {
@@ -120,11 +142,11 @@ export const JobsContextProvider = ({ children }) => {
 
   //aplicar pra um emprego
   const applyToJob = async (jobId) => {
-    const job = jobs.find(job => job._id === jobId);
+    const job = jobs.find((job) => job._id === jobId);
 
-    if(job && job.applicants.includes(userProfile._id)) {
+    if (job && job.applicants.includes(userProfile._id)) {
       toast.error("Você já se candidatou pra essa vaga!");
-      return
+      return;
     }
 
     try {
@@ -154,6 +176,15 @@ export const JobsContextProvider = ({ children }) => {
     }
   };
 
+  //
+  const handleSearchChange = (searchName, value) => {
+    setSearchQuery((prev) => ({ ...prev, [searchName]: value }));
+  };
+
+  const handleFilterChange = (filterName) => {
+    setFilters((prev) => ({ ...prev, [filterName]: !prev[filterName] }));
+  };
+
   useEffect(() => {
     getJobs();
   }, []);
@@ -176,6 +207,15 @@ export const JobsContextProvider = ({ children }) => {
         applyToJob,
         deleteJob,
         searchJobs,
+        handleSearchChange,
+        searchQuery,
+        setSearchQuery,
+        filters,
+        minSalary,
+        maxSalary,
+        setMaxSalary,
+        setFilters,
+        handleFilterChange,
       }}
     >
       {children}

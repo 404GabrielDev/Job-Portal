@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/callback" element={<Callback />} />
         <Route path="/post" element={<JobForm />} />
+        <Route path="/searchjobs" element={<SearchJobs />} />
       </Routes>
     </>
   )

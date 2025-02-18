@@ -44,8 +44,8 @@ const JobCard = ({ job, activeJob }) => {
   }, [job.likes, userProfile._id]);
 
   useEffect(() => {
-    setIsLiked(job.likes.includes(userProfile._id))
-  }, [job.likes, userProfile._id])
+    setIsLiked(job.likes.includes(userProfile._id));
+  }, [job.likes, userProfile._id]);
 
   const companyDescription =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed Ut purus eget nun";
@@ -79,7 +79,7 @@ const JobCard = ({ job, activeJob }) => {
               height={40}
             />
 
-            <h4>{title}</h4>
+            <h4 onClick={() => navigate(`/jobs/${job._id}`)}>{title}</h4>
           </div>
 
           <div className="container-cardDetails2">
@@ -101,9 +101,17 @@ const JobCard = ({ job, activeJob }) => {
               style={{ color: isLiked ? "#000" : "#fff" }}
             >
               {isLiked ? (
-                <img style={{ width: "20px", height:"20px" }} src="/bookmark.png" alt="BookMark" />
+                <img
+                  style={{ width: "20px", height: "20px" }}
+                  src="/bookmark.png"
+                  alt="BookMark"
+                />
               ) : (
-                <img style={{ width: "20px", height:"20px" }} src="/iconSave.png" alt="BookMark" />
+                <img
+                  style={{ width: "20px", height: "20px" }}
+                  src="/iconSave.png"
+                  alt="BookMark"
+                />
               )}
             </button>
           </div>

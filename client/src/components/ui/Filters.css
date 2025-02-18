@@ -1,0 +1,18 @@
+.containerClear {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.containerClear button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #e41010;
+    transition: scale 0.5s ease, color 0.5s ease;
+}
+
+.containerClear button:hover {
+    scale: 1.1;
+    color: #000;
+}

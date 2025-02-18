@@ -32,6 +32,25 @@
   gap: 2rem;
 }
 
+.container-cardDetails1 h4 {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: scale 0.5s ease, color 0.5s ease, border 0.5s ease,
+    border-radius 0.5s ease;
+  border: 1px solid transparent;
+  width: 250px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container-cardDetails1 h4:hover {
+  color: rgb(48, 145, 255);
+  scale: 1.1;
+  border: 1px solid rgb(119, 0, 255);
+  border-radius: 0.5rem;
+}
+
 .container-cardDetails2 {
   display: flex;
   justify-content: space-between;
