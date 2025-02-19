@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: #fff;
 }
 
 .container-countryCity {
@@ -23,7 +24,7 @@
 }
 
 .input-CountryCity label {
-  color: #696969;
+  color: #000;
 }
 
 #country {
@@ -33,6 +34,12 @@
   border: 2px solid #bcbcbc;
   border-radius: 0.5rem;
   padding: 0 0.5rem;
+  background-color: #000;
+  color: #fff;
+}
+
+#country::placeholder {
+  color: #d3d3d3;
 }
 
 #city {
@@ -42,6 +49,12 @@
   border: 2px solid #bcbcbc;
   border-radius: 0.5rem;
   padding: 0 0.5rem;
+  background-color: #000;
+  color: #fff;
+}
+
+#city::placeholder {
+  color: #d3d3d3;
 }
 
 .input-address {
@@ -52,7 +65,7 @@
 }
 
 .input-address label {
-  color: #696969;
+  color: #000;
 }
 
 #address {
@@ -62,4 +75,10 @@
   border: 2px solid #bcbcbc;
   border-radius: 0.5rem;
   padding: 0 0.5rem;
+  background-color: #000;
+  color: #fff;
+}
+
+#address::placeholder {
+  color: #d3d3d3;
 }

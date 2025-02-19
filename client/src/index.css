@@ -5,7 +5,11 @@
 }
 
 body {
-  background-color: rgb(215, 236, 255);
+  background-color: #000;
+  background-image: url('/backgroundHome.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .custom-quill-editor .ql-toolbar{

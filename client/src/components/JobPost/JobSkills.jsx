@@ -83,7 +83,7 @@ const JobSkills = () => {
             <div>
               <h3>Tags</h3>
               <label htmlFor="tags">
-                Adicione tags relevantes para as vagas
+                Adicione tags de categorias que ajudam a filtrar e encontrar a vaga
               </label>
             </div>
 

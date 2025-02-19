@@ -1,18 +1,34 @@
 .containerClear {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .containerClear button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #e41010;
-    transition: scale 0.5s ease, color 0.5s ease;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #e41010;
+  transition: scale 0.5s ease, color 0.5s ease;
 }
 
 .containerClear button:hover {
-    scale: 1.1;
-    color: #000;
+  scale: 1.1;
+  color: #000;
 }
+
+.container-salaryRange {
+  margin-top: 1rem;
+  text-align: center;
+  border: 2px solid #f70;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.container-partCheckbox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+

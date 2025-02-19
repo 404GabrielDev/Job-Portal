@@ -1,5 +1,11 @@
 /* Estilizando o botão normalmente */
 
+.createPost-job {
+  padding: 0.5rem;
+  color: #fff;
+}
+
+
 .container-pageAll {
   display: flex;
   gap: 2rem;
@@ -91,4 +97,20 @@
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem 1rem;
+}
+
+#btn-postJob {
+  border: none;
+  width: 12rem;
+  height: 2rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: color 0.5s ease, scale 0.5s ease;
+}
+
+#btn-postJob:hover {
+  scale: 1.1;
+  color: #f70;
 }

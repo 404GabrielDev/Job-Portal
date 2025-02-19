@@ -4,14 +4,13 @@
   background-color: #fff;
   border-radius: 1rem;
   margin-bottom: 2rem;
+  border: 2px solid red;
 /* Faz o card ocupar o espaço restante */
 }
 
-.container-jobCardItem {
+/*.container-jobCardItem {
     display: flex;
     flex-direction: column;
-    
-    
 }
 
 
@@ -24,7 +23,7 @@
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
+}*/
 
 .container-jobCardItem h3:hover {
   color: rgb(48, 145, 255);

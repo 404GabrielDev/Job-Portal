@@ -90,13 +90,13 @@ const Header = () => {
 
       <ul className="nav-links">
         <li>
-          <Link to="/searchjobs">Procurar Vagas</Link>
+          <Link className="LinkNav-style" to="/searchjobs">Procurar Vagas</Link>
         </li>
         <li>
-          <Link to="/myjobs">Meus trabalhos</Link>
+          <Link className="LinkNav-style" to="/myjobs">Meus trabalhos</Link>
         </li>
         <li>
-          <Link to="/post">Postar Vagas</Link>
+          <Link className="LinkNav-style" to="/post">Postar Vagas</Link>
         </li>
       </ul>
 

@@ -1,12 +1,32 @@
+.card-jobItem h3 {
+  border: 2px solid rgb(0, 0, 0);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: scale 0.5s ease, color 0.5s ease, border 0.5s ease, border-radius 0.5s ease;
+  border: 1px solid transparent;
+  width: 250px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-jobItem h3:hover {
+  color: rgb(48, 145, 255);
+  scale: 1.1;
+  border: 1px solid rgb(119, 0, 255);
+  border-radius: 0.5rem;
+}
+
+
 .job-card {
   padding: 1rem; /* Equivalente ao p-8 (8 * 0.25rem = 2rem, mas usei 1rem para ajuste) */
   border-radius: 8px; /* Equivalente ao rounded-xl */
-  display: flex;
-  flex-direction: column;
+  /* aqui tinha display flex, e flex direction collum */
   gap: 20px; /* Equivalente ao gap-5 */
   background-color: white; /* Padrão, equivalente ao bg-white */
   transition: all 0.3s ease-in-out;
   width: 100%;
+ /* lorem não está acompanhando o card */
   border: 2px solid green;
 }
 
@@ -32,19 +52,18 @@
   gap: 2rem;
 }
 
-.container-cardDetails1 h4 {
+#titleNavigation {
   cursor: pointer;
   text-decoration: underline;
-  transition: scale 0.5s ease, color 0.5s ease, border 0.5s ease,
-    border-radius 0.5s ease;
   border: 1px solid transparent;
   width: 250px;
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  transition: scale 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
 
-.container-cardDetails1 h4:hover {
+#titleNavigation:hover {
   color: rgb(48, 145, 255);
   scale: 1.1;
   border: 1px solid rgb(119, 0, 255);
@@ -116,4 +135,15 @@
 .jobTypeBg {
   display: flex;
   gap: 1rem;
+}
+
+.container-fsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#componentMoney {
+  display: flex;
+  gap: 0.5rem;
 }

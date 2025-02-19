@@ -40,8 +40,8 @@ const Filters = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="container-partCheckbox">
+      <div className="container-partCheckbox">
         <div className="containerClear">
           <h2>Job Type</h2>
 
@@ -96,9 +96,9 @@ const Filters = () => {
         </div>
       </div>
 
-      <div>
+      <div className="container-partCheckbox">
         <h2>Skills</h2>
-        <div>
+        <div className="container-partCheckbox">
           <div>
             <input
               type="checkbox"
@@ -141,11 +141,8 @@ const Filters = () => {
         </div>
       </div>
 
-      <div>
-        <h2>Salary Range</h2>
-        <div>
-          <label htmlFor="minSalary">Minimum Salary</label>
-        </div>
+      <div className="container-salaryRange">
+        <h2>Faixa Salarial</h2>
         <SalarySlider id="minSalary" onChange={handleSalaryChange} />
       </div>
       <span>{FormatMoney(minSalary, "GBP")}</span>

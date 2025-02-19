@@ -56,6 +56,22 @@
   padding: 0.5rem;
   display: flex;
   gap: 0.5rem;
+  cursor: pointer;
+  transition: scale 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+
+#negotiable {
+  cursor: pointer;
+}
+
+#hideSalary {
+  cursor: pointer;
+}
+
+.container-inputsPayments:hover {
+  scale: 1.1;
+  background-color: #000;
+  color: #f70;
 }
 
 .container-modelPayments {

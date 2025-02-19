@@ -65,7 +65,7 @@ const JobDetails = () => {
                 checked={negotiable}
                 onChange={(e) => setNegotiable(e.target.checked)}
               />
-              <label htmlFor="negotiable">Negotiable</label>
+              <label htmlFor="negotiable">Negociavel</label>
             </div>
 
             <div className="container-inputsPayments">

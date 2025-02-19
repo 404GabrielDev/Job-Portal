@@ -1,10 +1,15 @@
 
 .containerAll-jobsHome {
   display: flex;
+  gap: 2rem;
 }
 
 .container-Filter {
   width: 15%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid red;
 }
 
 .containerAll-viewMode {
@@ -13,6 +18,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
+  color: #fff;
 }
 
 .container-findWork {
@@ -54,4 +60,11 @@
 
 .grid-cols-3 {
   grid-template-columns: repeat(3, 1fr);
+  height: 400px;
+}
+
+.container-salaryRange {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

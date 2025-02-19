@@ -79,7 +79,7 @@ const JobCard = ({ job, activeJob }) => {
               height={40}
             />
 
-            <h4 onClick={() => navigate(`/jobs/${job._id}`)}>{title}</h4>
+            <h4 id="titleNavigation" onClick={() => navigate(`/jobs/${job._id}`)}>{title}</h4>
           </div>
 
           <div className="container-cardDetails2">
@@ -125,35 +125,43 @@ const JobCard = ({ job, activeJob }) => {
         ))}
       </div>
 
-      <p>
-        {companyDescription.length > 100
-          ? `${companyDescription.substring(0, 100)}...`
-          : companyDescription}
-      </p>
-
-      <hr />
-
-      <div>
+      <div className="container-fsCard">
         <p>
-          <span>{formatMoney(salary, "GBP")}</span>
-          <span>
-            {salaryType === "Yearly"
-              ? "pa"
-              : salaryType === "Monthly"
-              ? "pcm"
-              : salaryType === "Weekly"
-              ? "pw"
-              : "ph"}
-          </span>
+          {companyDescription.length > 100
+            ? `${companyDescription.substring(0, 100)}...`
+            : companyDescription}
         </p>
 
-        <p>
-          {showCalendar && (
-            <div>
-              <p>Postado: {formatDates(createdAt)}</p>
+        <hr />
+
+        <div>
+          <p>
+            <div id="componentMoney">
+              <p>Salario:</p>
+
+              <div>
+                <span>{formatMoney(salary, "GBP")}</span>
+                <span>
+                  {salaryType === "Yearly"
+                    ? "pa"
+                    : salaryType === "Monthly"
+                    ? "pcm"
+                    : salaryType === "Weekly"
+                    ? "pw"
+                    : "ph"}
+                </span>
+              </div>
             </div>
-          )}
-        </p>
+          </p>
+
+          <p>
+            {showCalendar && (
+              <div>
+                <p>Postado: {formatDates(createdAt)}</p>
+              </div>
+            )}
+          </p>
+        </div>
       </div>
     </div>
   );

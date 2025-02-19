@@ -9,6 +9,8 @@ import useJobContext from '../../context/UseJobContext'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const JobForm = () => {
+  const navigate = useNavigate()
+
   const {
     jobTitle,
     jobDescription,
@@ -93,12 +95,14 @@ const JobForm = () => {
         tags,
       }
     )
+
+    navigate('/')
     
   }
 
   return (
     <>
-      <div>
+      <div className="createPost-job">
         <h1>Criar/publicar uma vaga</h1>
       </div>
 
@@ -151,7 +155,7 @@ const JobForm = () => {
             </div>
 
             {currentSection === "Summary" && (
-              <button type="submit">Post Job</button>
+              <button id="btn-postJob" type="submit">Post Job</button>
             )}
           </form>
         </section>

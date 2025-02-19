@@ -73,7 +73,7 @@ const Page = () => {
             <div className="container-profile-save">
               <div className="container-descriptionJob-s1">
                 <img
-                  src={profilePicture || "./profile-user.png"}
+                  src={profilePicture || "/profile-user.png"}
                   width={50}
                   height={50}
                   alt="Foto-de-perfil"

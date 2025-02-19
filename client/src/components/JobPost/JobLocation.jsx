@@ -24,7 +24,7 @@ const JobLocation = () => {
             name="country"
             value={location.country}
             onChange={handleLocationChange}
-            placeholder="insira uma cidade/País"
+            placeholder="insira a localidade do País"
           />
         </div>
 

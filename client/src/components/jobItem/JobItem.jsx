@@ -5,7 +5,7 @@ import "./jobItem.css";
 import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
-
+  const navigate = useNavigate()
   const { deleteJob } = UseJobContext();
   return (
     <div className="card-jobItem">
@@ -14,7 +14,7 @@ const JobCard = ({ job }) => {
         alt="iconUser"
         style={{ width: "50px", height: "50px", borderRadius: "50%" }}
       />
-      <h3>{job.title}</h3>
+      <h3 onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem">{job.title}</h3>
       <p>Criado Por: {job.createdBy.name}</p>
       <p>{job.location}</p>
       <p>Postado {formatDates(job.createdAt)}</p>
@@ -50,10 +50,10 @@ const JobItem = ({ job }) => {
 
   return (
     <div>
-      <div onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem">
-        <JobCard job={job} />
-      </div>
-
+       {/*onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem"> */}
+        
+       
+      <JobCard job={job} />
       <div>
         <div></div>
       </div>

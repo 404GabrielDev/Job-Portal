@@ -23,7 +23,6 @@ const SalarySlider = ({ min = 0, max = 100000, onChange }) => {
       <p>
         R$ {salarySlider[0]} - R$ {salarySlider[1]}
       </p>
-      <hr />
 
       <p>Minimo/Maximo</p>
       <ReactSlider
