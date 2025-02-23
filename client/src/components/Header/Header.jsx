@@ -78,7 +78,7 @@ const Header = () => {
 
   return (
     <header>
-      <div>
+      <div className="logotipo-header">
         <Link to="/">
           <img
             className="iconBusiness"
@@ -86,17 +86,25 @@ const Header = () => {
             alt="icone do site"
           />
         </Link>
+
+        <p>Portal Job</p>
       </div>
 
       <ul className="nav-links">
         <li>
-          <Link className="LinkNav-style" to="/searchjobs">Procurar Vagas</Link>
+          <Link className="LinkNav-style" to="/searchjobs">
+            Procurar Vagas
+          </Link>
         </li>
         <li>
-          <Link className="LinkNav-style" to="/myjobs">Meus trabalhos</Link>
+          <Link className="LinkNav-style" to="/myjobs">
+            Meus trabalhos
+          </Link>
         </li>
         <li>
-          <Link className="LinkNav-style" to="/post">Postar Vagas</Link>
+          <Link className="LinkNav-style" to="/post">
+            Postar Vagas
+          </Link>
         </li>
       </ul>
 

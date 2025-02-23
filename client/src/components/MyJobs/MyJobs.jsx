@@ -30,7 +30,7 @@ const MyJobs = () => {
   }
 
   return (
-    <div>
+    <div className="containerAll-myJobs">
       <div className="button-topMyJobs">
         <button
           className={`border ${

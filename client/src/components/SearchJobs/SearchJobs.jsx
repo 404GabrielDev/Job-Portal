@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UseJobContext from "../../context/UseJobContext";
 import UseGlobalContext from "../../context/UseContext";
 import FindWork from "../ui/FindWork";
@@ -7,6 +7,8 @@ import JobCard from "../jobItem/JobCard";
 import JobItem from "../jobItem/JobItem";
 import { useNavigate } from "react-router-dom";
 import Filters from "../ui/Filters";
+import SalarySlider from "../SalarySlider/SalarySlider";
+import toast from "react-hot-toast";
 
 const SearchJobs = () => {
   const [colums, setColums] = useState(3);
@@ -16,6 +18,8 @@ const SearchJobs = () => {
 
   const [isLiked, setIsLiked] = useState(false);
   const [isApplied, setIsApplied] = useState(false);
+
+  const [salaryRange, setSalaryRange] = useState([0, 100000]);
 
   // alterna dinamicamente o número de colunas entre 1, 2 e 3
   const toggleGridColums = () => {
@@ -28,29 +32,42 @@ const SearchJobs = () => {
     return "/listView.png";
   };
 
-  const filtredJobs =
-    filters.fullTime || filters.partTime || filters.contract || filters.internet
-      ? jobs.filter((job) => {
-          if (filters.fullTime && job.jobType.includes("Full Time"))
-            return true;
+  const filtredJobs = jobs.filter((job) => {
+    const matchesJobType =
+      (!filters.fulltime || job.jobType.includes("Full Time")) &&
+      (!filters.partTime || job.jobType.includes("Part Time")) &&
+      (!filters.contract || job.jobType.includes("Contract")) &&
+      (!filters.internship || job.jobType.includes("Internship")) &&
+      (!filters.temporary || job.jobType.includes("Temporary"));
 
-          if (filters.partTime && job.jobType.includes("Part Time"))
-            return true;
+    const matchesSkills =
+      (!filters.fullstack || job.tags.includes("fullStack")) &&
+      (!filters.backend || job.tags.includes("backend")) &&
+      (!filters.devOps || job.tags.includes("devOps")) &&
+      (!filters.uiux || job.tags.includes("uiux"));
+    const matchesSalary =
+      job.salary >= salaryRange[0] && job.salary <= salaryRange[1];
 
-          if (filters.contract && job.jobType.includes("Contract")) return true;
+    return matchesJobType && matchesSkills && matchesSalary;
+  });
 
-          if (filters.internship && job.jobType.includes("internship"))
-            return true;
+  useEffect(() => {
+    let toastId;
 
-          if(filters.fullstack && job.tags.includes("Full Stack")) return true;
+    if (filtredJobs.length === 0) {
+      toastId = toast.error("Nenhuma vaga encontrada com esse filtro", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
 
-          if(filters.backend && job.tags.includes("Backend")) return true;
-
-          if(filters.devOps && job.tags.includes("devOps")) return true;
-          
-          if(filters.uiux && job.tags.includes("UI/UX")) return true;
-        })
-      : jobs;
+    // Cleanup: remove o toast quando os filtros mudam novamente
+    return () => {
+      if (toastId) {
+        toast.dismiss(toastId);
+      }
+    };
+  }, [filtredJobs]);
 
   return (
     <div className="containerAll-pageWork">
@@ -78,6 +95,9 @@ const SearchJobs = () => {
       <div className="containerAll-jobsHome">
         <div className="container-Filter">
           <Filters />
+          <div className="container-salaryRange">
+            <SalarySlider value={salaryRange} onChange={setSalaryRange} />
+          </div>
         </div>
 
         <div
@@ -89,10 +109,10 @@ const SearchJobs = () => {
               : "grid-cols-1"
           }`}
         >
-          {jobs.length > 0 ? (
+          {filtredJobs && filtredJobs.length > 0 ? (
             filtredJobs.map((job) => <JobCard key={job._id} job={job} />)
           ) : (
-            <div>No Jobs Found!</div>
+            <h1>nenhuma Vaga encontrada com esse Filtro</h1>
           )}
         </div>
       </div>

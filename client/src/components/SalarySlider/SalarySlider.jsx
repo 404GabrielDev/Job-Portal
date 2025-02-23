@@ -3,35 +3,35 @@ import "./SalarySlider.css";
 import ReactSlider from "react-slider";
 import UseJobContext from "../../context/UseJobContext";
 
-const SalarySlider = ({ min = 0, max = 100000, onChange }) => {
-  const [salarySlider, setSalarySlider] = useState([min, max]);
+const SalarySlider = ({ min = 0, max = 100000, onChange, value }) => {
+  /*const [salarySlider, setSalarySlider] = useState([min, max]);
   const { minSalary, maxSalary } = UseJobContext();
-  const [salaryRange, setSalaryRange] = useState([minSalary, maxSalary]);
-  
-  
-  const handleChange = (value) => {
-    setSalaryRange(value);
+  const [salaryRange, setSalaryRange] = useState([minSalary, maxSalary]);*/
+
+  const handleChange = (newValue) => {
+    //setSalaryRange(value);
     if (onChange) {
-      onChange(value);
+      onChange(newValue);
     }
   };
 
   return (
     <div className="slider-container">
-      <h3>faixa salarial</h3>
-
-      <p>
-        R$ {salarySlider[0]} - R$ {salarySlider[1]}
-      </p>
+      <h1>Faixa Salarial</h1>
 
       <p>Minimo/Maximo</p>
+
+      <p>
+        R$ {value[0]} - R$ {value[1]}
+      </p>
+
       <ReactSlider
         className="custom-slider"
         thumbClassName="custom-thumb"
         trackClassName="custom-track"
         min={min}
         max={max}
-        value={salaryRange}
+        value={value}
         onChange={handleChange}
         minDistance={500} // Define uma distância mínima entre os valores
         pearling

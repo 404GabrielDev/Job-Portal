@@ -37,6 +37,7 @@ export const JobsContextProvider = ({ children }) => {
     backend: false,
     devOps: false,
     uiux: false,
+    temporary:false
   });
 
   const [minSalary, setMinSalary] = useState(30000);

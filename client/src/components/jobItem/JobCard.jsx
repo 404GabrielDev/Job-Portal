@@ -47,8 +47,9 @@ const JobCard = ({ job, activeJob }) => {
     setIsLiked(job.likes.includes(userProfile._id));
   }, [job.likes, userProfile._id]);
 
-  const companyDescription =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed Ut purus eget nun";
+  console.log("Job aqui", job)
+
+  const companyDescription = job?.skills.join(", ");
 
   const cardBorderColor = activeJob ? "#6a0dad" : "#fff";
 
@@ -79,7 +80,12 @@ const JobCard = ({ job, activeJob }) => {
               height={40}
             />
 
-            <h4 id="titleNavigation" onClick={() => navigate(`/jobs/${job._id}`)}>{title}</h4>
+            <h4
+              id="titleNavigation"
+              onClick={() => navigate(`/jobs/${job._id}`)}
+            >
+              {title}
+            </h4>
           </div>
 
           <div className="container-cardDetails2">
@@ -126,13 +132,15 @@ const JobCard = ({ job, activeJob }) => {
       </div>
 
       <div className="container-fsCard">
-        <p>
+        
+
+        <hr />
+
+        <p id="companyDescription">
           {companyDescription.length > 100
             ? `${companyDescription.substring(0, 100)}...`
             : companyDescription}
         </p>
-
-        <hr />
 
         <div>
           <p>

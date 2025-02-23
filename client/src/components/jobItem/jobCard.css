@@ -30,6 +30,11 @@
   border: 2px solid green;
 }
 
+.job-card hr {
+  margin-top: 1rem;
+  border: 1px solid rgb(119, 0, 255);
+}
+
 .container-nameLike {
   display: flex;
   flex-direction: column;
@@ -68,6 +73,12 @@
   scale: 1.1;
   border: 1px solid rgb(119, 0, 255);
   border-radius: 0.5rem;
+}
+
+#companyDescription {
+  border: 1px solid rgb(119, 0, 255);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .container-cardDetails2 {
@@ -140,7 +151,7 @@
 .container-fsCard {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #componentMoney {

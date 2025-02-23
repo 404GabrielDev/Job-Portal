@@ -2,7 +2,7 @@ import React from "react";
 import "./Filters.css";
 import UseJobContext from "../../context/UseJobContext";
 import SalarySlider from "../SalarySlider/SalarySlider";
-import FormatMoney from '../../../utils/FormatMoney'
+import FormatMoney from "../../../utils/FormatMoney";
 const Filters = () => {
   const { searchJobs } = UseJobContext();
 
@@ -23,7 +23,7 @@ const Filters = () => {
       partTime: false,
       contract: false,
       internship: false,
-      fullStack: false,
+      fullstack: false,
       devOps: false,
       backEnd: false,
       uiux: false,
@@ -47,8 +47,8 @@ const Filters = () => {
 
           <button
             onClick={() => {
-              clearAllFilters();
               searchJobs();
+              clearAllFilters();
             }}
           >
             Clear All
@@ -94,6 +94,16 @@ const Filters = () => {
           />
           <label htmlFor="internship">Internship</label>
         </div>
+
+        <div>
+          <input
+            type="checkbox"
+            id="Temporary"
+            checked={filters.temporary}
+            onChange={() => handleFilterChange("temporary")}
+          />
+          <label htmlFor="Temporary">Temporary</label>
+        </div>
       </div>
 
       <div className="container-partCheckbox">
@@ -102,21 +112,21 @@ const Filters = () => {
           <div>
             <input
               type="checkbox"
-              id="fullStack"
-              checked={filters.fullStack}
-              onChange={() => handleFilterChange("fullStack")}
+              id="fullstack"
+              checked={filters.fullstack}
+              onChange={() => handleFilterChange("fullstack")}
             />
-            <label htmlFor="fullStack">Full Stack</label>
+            <label htmlFor="fullstack">Full Stack</label>
           </div>
 
           <div>
             <input
               type="checkbox"
-              id="backEnd"
-              checked={filters.backEnd}
-              onChange={() => handleFilterChange("backEnd")}
+              id="backend"
+              checked={filters.backend}
+              onChange={() => handleFilterChange("backend")}
             />
-            <label htmlFor="backEnd">Backend</label>
+            <label htmlFor="backend">Backend</label>
           </div>
 
           <div>
@@ -132,7 +142,7 @@ const Filters = () => {
           <div>
             <input
               type="checkbox"
-              id="internship"
+              id="uiux"
               checked={filters.uiux}
               onChange={() => handleFilterChange("uiux")}
             />
@@ -141,12 +151,9 @@ const Filters = () => {
         </div>
       </div>
 
-      <div className="container-salaryRange">
-        <h2>Faixa Salarial</h2>
-        <SalarySlider id="minSalary" onChange={handleSalaryChange} />
-      </div>
+      {/* 
       <span>{FormatMoney(minSalary, "GBP")}</span>
-      <span>{FormatMoney(maxSalary, "GBP")}</span>
+      <span>{FormatMoney(maxSalary, "GBP")}</span> */}
     </div>
   );
 };
