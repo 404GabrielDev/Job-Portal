@@ -5,8 +5,9 @@ import "./jobItem.css";
 import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { deleteJob } = UseJobContext();
+  
   return (
     <div className="card-jobItem">
       <img
@@ -14,7 +15,12 @@ const JobCard = ({ job }) => {
         alt="iconUser"
         style={{ width: "50px", height: "50px", borderRadius: "50%" }}
       />
-      <h3 onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem">{job.title}</h3>
+      <h3
+        onClick={() => navigate(`/jobs/${job._id}`)}
+        className="container-jobCardItem"
+      >
+        {job.title}
+      </h3>
       <p>Criado Por: {job.createdBy.name}</p>
       <p>{job.location}</p>
       <p>Postado {formatDates(job.createdAt)}</p>
@@ -33,8 +39,18 @@ const JobCard = ({ job }) => {
       </div>
 
       <div className="container-iconEdit">
-        <img style={{maxWidth:"20px"}} src="/edit.png" alt="icon-edit" />
-        <img onClick={() => deleteJob(job._id)} style={{maxWidth:"20px"}} src="/trash-bin.png" alt="icon-lixeira" />
+        <img
+          onClick={() => navigate(`/edit-job/${job._id}`)}
+          style={{ maxWidth: "20px" }}
+          src="/edit.png"
+          alt="icon-edit"
+        />
+        <img
+          onClick={() => deleteJob(job._id)}
+          style={{ maxWidth: "20px" }}
+          src="/trash-bin.png"
+          alt="icon-lixeira"
+        />
       </div>
     </div>
   );
@@ -45,14 +61,12 @@ const Badge = ({ children, variant = "primary" }) => {
 };
 
 const JobItem = ({ job }) => {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
 
   return (
     <div>
-       {/*onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem"> */}
-        
-       
+      {/*onClick={() => navigate(`/jobs/${job._id}`)} className="container-jobCardItem"> */}
+
       <JobCard job={job} />
       <div>
         <div></div>

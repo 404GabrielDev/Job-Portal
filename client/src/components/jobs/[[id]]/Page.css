@@ -1,9 +1,12 @@
+
+.container-JobCardDetails {
+}
+
 .container-findWork {
   background-color: #1f85c9;
 }
 
 .container-alldescriptionJob {
-  width: 100%;
   border: 2px solid rgb(56, 128, 164);
   border-radius: 0.5rem;
   background-color: #fff;
@@ -149,8 +152,9 @@
 /*3 section da pagina */
 
 .container-ApplyDetails-job {
+  max-width: 100%;
+  overflow-x: hidden;
   padding: 1rem;
-  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

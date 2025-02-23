@@ -213,6 +213,37 @@ export const getJobById = asyncHandler(async (req, res) => {
   }
 });
 
+//atualizar uma vaga
+export const updateJob = asyncHandler(async (req, res) => {
+  console.log("Informações aqui", req.body)
+  try {
+    const { id } = req.params;
+    const user = await User.findOne({ auth0Id: req.oidc.user.sub });
+
+    if (!user) {
+      return res.status(404).json({ message: "Usuario não encontrado" });
+    }
+
+    const job = await Job.findById(id);
+    if (!job) {
+      return res.status(404).json({ message: "Vaga não encontrada" });
+    }
+
+    if (!job.createdBy.equals(user._id)) {
+      return res.status(403).json({ message: "Não autorizado" });
+    }
+
+    Object.assign(job, req.body);
+
+    await job.save()
+    
+    return res.status(200).json(job);
+  } catch (error) {
+    console.log("Erro ao atualizar a vaga", error);
+    return res.status(500).json({ message: "Server Error" });
+  }
+});
+
 //deletar emprego
 export const deleteJob = asyncHandler(async (req, res) => {
   try {
@@ -226,18 +257,17 @@ export const deleteJob = asyncHandler(async (req, res) => {
       });
     }
 
-    if(!user) {
+    if (!user) {
       return res.status(404).json({
-        message:"Usuario não encontrado"
-      })
+        message: "Usuario não encontrado",
+      });
     }
 
     await job.deleteOne({
       _id: id,
-    })
+    });
 
-    return res.status(200).json({message:"Emprego deletado com sucesso!"})
-
+    return res.status(200).json({ message: "Emprego deletado com sucesso!" });
   } catch (error) {
     console.log("Erro ao deletar o emprego", error);
     return res.status(500).json({

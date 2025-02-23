@@ -2,6 +2,7 @@
 .containerAll-jobsHome {
   display: flex;
   gap: 2rem;
+  padding: 0.5rem;
 }
 
 .container-Filter {
@@ -9,7 +10,6 @@
   background-color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid red;
 }
 
 .containerAll-viewMode {

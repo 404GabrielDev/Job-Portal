@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "./main.css";
 
+
 const Home = () => {
+
+  const navigate = useNavigate()
+
   const Card = ({
     image,
     title,
@@ -44,8 +49,7 @@ const Home = () => {
           </div>
 
           <div className="inputSearchJobs">
-            <input type="text" placeholder="Emprego ou Palavra Chave" />
-            <button>Pesquisar Empregos</button>
+            <button onClick={() => navigate('/searchjobs')}>Pesquisar Empregos</button>
           </div>
         </section>
 
@@ -97,8 +101,8 @@ const Home = () => {
           </div>
 
           <div className="buttons-getStarted">
-            <button>Procurar Vagas</button>
-            <button>Postar Vagas</button>
+            <button onClick={() => navigate('/searchjobs')}>Procurar Vagas</button>
+            <button onClick={() => navigate('/post')}>Postar Vagas</button>
           </div>
         </section>
       </div>

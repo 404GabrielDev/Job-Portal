@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import useGlobalContext from "../../context/UseContext";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import "./JobDetails.css";
 function MyEditor() {
-  const { setJobDescription, jobDescription } = useGlobalContext();
+  const { setJobDescription, jobDescription } = useGlobalContext()
+
+
 
   return (
     <ReactQuill
@@ -75,7 +77,7 @@ const JobDetails = () => {
                 checked={hideSalary}
                 onChange={(e) => setHideSalary(e.target.checked)}
               />
-              <label htmlFor="negotiable">esconder salário</label>
+              <label htmlFor="hideSalary">esconder salário</label>
             </div>
 
             <div className="container-modelPayments">

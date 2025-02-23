@@ -31,6 +31,8 @@ const GlobalContextProvider = ({ children }) => {
     address: "",
   });
 
+
+
   useEffect(() => {
     const checkAuth = async () => {
       setLoading(true);

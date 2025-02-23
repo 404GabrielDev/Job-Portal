@@ -6,9 +6,15 @@ import JobLocation from "./JobLocation";
 import JobSkills from "./JobSkills";
 import JobTitle from "./JobTitle";
 import useJobContext from '../../context/UseJobContext'
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-const JobForm = () => {
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import UseJobContext from "../../context/UseJobContext";
+import {toast} from 'react-hot-toast'
+
+
+const JobForm = ({isEditing}) => {
+  const {jobId} = useParams()
   const navigate = useNavigate()
 
   const {
@@ -31,12 +37,14 @@ const JobForm = () => {
       }
     }, [globalisAuthenticated])
 
-    console.log(globalisAuthenticated)
-
   const{createJob} = useJobContext()
 
   const sections = ["About", "Job Details", "Skills", "Location", "Summary"];
   const [currentSection, setCurrentSection] = React.useState(sections[0]);
+
+    /*const handleDescriptionChange = (content) => {
+      setJobData({...jobData, description: content})
+    }*/
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
@@ -80,30 +88,35 @@ const JobForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    createJob(
-      {
-        title: jobTitle,
-        description: jobDescription,
-        salaryType,
-        jobType: activeEmployementTypes,
-        salary,
-        location: `${location.address}, ${location.city}, ${location.country}`,
-        skills,
-        negotiable,
-        tags,
-      }
-    )
 
-    navigate('/')
-    
+    if(isEditing) {
+      await axios.put(`/api/v1/jobs/${jobId}`, jobData)
+      toast.success("Vaga Atualizada com sucesso!");
+      navigate('/myjobs')
+    } else {
+      createJob(
+        {
+          title: jobTitle,
+          description: jobDescription,
+          salaryType,
+          jobType: activeEmployementTypes,
+          salary,
+          location: `${location.address}, ${location.city}, ${location.country}`,
+          skills,
+          negotiable,
+          tags,
+        }
+      )
+      navigate('/')
+    }
   }
 
   return (
     <>
       <div className="createPost-job">
-        <h1>Criar/publicar uma vaga</h1>
+        <h1>{isEditing ? "Editar vaga" : "Criar/publicar uma Vaga"}</h1>
       </div>
 
       <div className="container-pageAll">

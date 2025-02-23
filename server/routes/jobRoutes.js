@@ -8,6 +8,7 @@ import {
   likeJob,
   getJobById,
   deleteJob,
+  updateJob,
 } from "../controllers/jobController.js";
 import protect from "../middleware/protect.js";
 
@@ -29,6 +30,9 @@ router.put('/jobs/like/:id', protect, likeJob)
 
 //get job by id
 router.get('/jobs/:id', protect, getJobById)
+
+//atualizar a vaga
+router.put('/jobs/:id', protect, updateJob)
 
 //deletar emprego
 router.delete('/jobs/:id', protect, deleteJob)

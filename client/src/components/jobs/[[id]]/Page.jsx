@@ -59,9 +59,9 @@ const Page = () => {
   };
 
   return (
-    <div>
+    <div className="all-pageJsx">
       <div className="container-allDescription">
-        <div>
+        <div className="container-JobCardDetails">
           <JobCard activeJob job={job} />
           {otherJobs.map((job) => (
             <JobCard job={job} key={job._id} />

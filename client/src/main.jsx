@@ -12,7 +12,6 @@ const clientId = "mZ6zOj1idi2AyEHOJeI4Gp8pqegWiWUT";
 const redirectUri = import.meta.env.VITE_CLIENT_URL;
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <BrowserRouter>
       <GlobalContextProvider>
         <JobsContextProvider>
@@ -29,5 +28,4 @@ createRoot(document.getElementById("root")).render(
         </JobsContextProvider>
       </GlobalContextProvider>
     </BrowserRouter>
-  </StrictMode>
 );

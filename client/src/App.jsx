@@ -8,6 +8,7 @@ import Callback from "./components/Callback/Callback"
 import JobForm from "./components/JobPost/JobForm"
 import { Toaster } from "react-hot-toast"
 import Page from './components/jobs/[[id]]/Page'
+import EditJob from "./components/EditJob/EditJob"
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/callback" element={<Callback />} />
         <Route path="/post" element={<JobForm />} />
+        <Route path="/edit-job/:id" element={<EditJob />} /> {/* <- Adicione essa rota */}
         <Route path="/searchjobs" element={<SearchJobs />} />
       </Routes>
     </>

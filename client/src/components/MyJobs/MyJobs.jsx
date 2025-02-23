@@ -8,11 +8,11 @@ const MyJobs = () => {
   const { userJobs, jobs } = useJobContext();
 
   const { globalisAuthenticated, loading, userProfile } = UseGlobalContext();
+  console.log("Informações do userProfile aqui")
 
   const [activeTab, setActiveTab] = useState("posts");
 
-  const userId = userProfile?.id;
-
+  const userId = userProfile?._id;
 
   useEffect(() => {
         if(!loading && !globalisAuthenticated) {
