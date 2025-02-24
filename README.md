@@ -102,10 +102,9 @@ npm test
 
 
 ## Licença
-Este projeto está sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a Licença MIT
 
 ## Contato
 - Nome: Gabriel
 - Email: joaogabriell.ssm@gmail.com
-- LinkedIn: [Seu Perfil](https://www.linkedin.com/in/seu-perfil)
 
