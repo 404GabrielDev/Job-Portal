@@ -1,5 +1,10 @@
 .containerAll-pageWork {
   font-family: 'Signika', sans-serif;
+  background-image: url('/backgroundJob.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem 1rem;
 }
 
 
@@ -27,6 +32,10 @@
 
 .container-findWork {
   text-align: center;
+}
+
+.container-findWork h1 {
+  color: #f70;
 }
 
 .btn-viewMode {
@@ -64,7 +73,7 @@
 
 .grid-cols-3 {
   grid-template-columns: repeat(3, 1fr);
-  height: 400px;
+  min-height: 400px;
 }
 
 .container-salaryRange {

@@ -145,7 +145,7 @@ const EditJob = () => {
       const updatedJob = {
         title: jobTitle,
         description: jobDescription,
-        location:fullLocation,
+        location: fullLocation,
         salary,
         jobType: selectedJobTypes, // Usa os tipos de emprego selecionados
         tags,
@@ -173,106 +173,117 @@ const EditJob = () => {
   return (
     <>
       {/*CONTAINER DO TITULO*/}
-      <div className="container-jobTitle">
-        <div className="job-title">
-          <h3>Job Title</h3>
-          <p>
-            A job title is a specific designation of a post in an organization.
-          </p>
+      <div className="job-container">
+        <div className="container-jobTitle">
+          <div className="job-title">
+            <h3>Job Title</h3>
+            <p>
+              A job title is a specific designation of a post in an
+              organization.
+            </p>
+          </div>
+
+          <div className="container-jobInput">
+            <input
+              type="text"
+              value={jobTitle}
+              onChange={(e) => setJobTitle(e.target.value)}
+              placeholder="Enter Job Title"
+            />
+          </div>
+
+          <hr />
         </div>
 
-        <div className="container-jobInput">
-          <input
-            type="text"
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-            placeholder="Enter Job Title"
-          />
-        </div>
+        <div className="employment-section">
+          <div>
+            <h3>Employment Type</h3>
+            <p>Select the type of employment.</p>
+          </div>
 
-        <hr />
-      </div>
-
-      <div className="employment-section">
-        <div>
-          <h3>Employment Type</h3>
-          <p>Select the type of employment.</p>
-        </div>
-
-        <div className="container-allCheckbox">
-          <div className="checkbox-group">
-            {Object.entries(employementTypes).map(([type, checked]) => (
-              <label key={type} className="custom-checkbox">
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => handleEmployementTypeChange(type)}
-                />
-                <span className="checkmark"></span>
-                {type.replace(/([A-Z])/g, " $1").trim()}{" "}
-                {/* Formata os nomes */}
-              </label>
-            ))}
+          <div className="container-allCheckbox">
+            <div className="checkbox-group">
+              {Object.entries(employementTypes).map(([type, checked]) => (
+                <label key={type} className="custom-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => handleEmployementTypeChange(type)}
+                  />
+                  <span className="checkmark"></span>
+                  {type.replace(/([A-Z])/g, " $1").trim()}{" "}
+                  {/* Formata os nomes */}
+                </label>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/*CONTAINER DA DESCRIÇÃO*/}
-      <div className="container-MyEditor">
-        <MyEditor value={jobDescription} onChange={handleChange} />
-      </div>
-
-      {/*CONTAINER DO SALARIO*/}
-      <div className="container-salaryJob">
-        <div>
-          <h3>Salario:</h3>
-          <label htmlFor="salary">Estabeleça um salario pra essa vaga</label>
+      <div className="container-allJobDetails">
+        <div className="container-descriptionJob">
+          <div>
+            <h3>Descrição da vaga</h3>
+            <label>Forneça detalhes da vaga</label>
+          </div>
+          <div className="container-MyEditor">
+            <MyEditor value={jobDescription} onChange={handleChange} />
+          </div>
         </div>
 
-        <div className="container-inputsSalary">
-          <input
-            type="number"
-            id="salary"
-            placeholder="Forneça um salario"
-            value={salary}
-            onChange={(e) => setSalary(e.target.value)}
-          />
+        {/*CONTAINER DO SALARIO*/}
+        <div className="container-salaryJob">
+          <div>
+            <h3>Salario:</h3>
+            <label htmlFor="salary">Estabeleça um salario pra essa vaga</label>
+          </div>
 
-          <div className="container-payments">
-            <div className="container-inputsPayments">
-              <input
-                type="checkbox"
-                id="negotiable"
-                checked={negotiable}
-                onChange={(e) => setNegotiable(e.target.checked)}
-              />
-              <label htmlFor="negotiable">Negociavel</label>
-            </div>
+          <div className="container-inputsSalary">
+            <input
+              type="number"
+              id="salary"
+              placeholder="Forneça um salario"
+              value={salary}
+              onChange={(e) => setSalary(e.target.value)}
+            />
 
-            <div className="container-inputsPayments">
-              <input
-                type="checkbox"
-                id="hideSalary"
-                checked={hideSalary}
-                onChange={(e) => setHideSalary(e.target.checked)}
-              />
-              <label htmlFor="hideSalary">esconder salário</label>
-            </div>
+            <div className="container-payments">
+              <div className="container-inputsPayments">
+                <input
+                  type="checkbox"
+                  id="negotiable"
+                  checked={negotiable}
+                  onChange={(e) => setNegotiable(e.target.checked)}
+                />
+                <label htmlFor="negotiable">Negociavel</label>
+              </div>
 
-            <div className="container-modelPayments">
-              <p>Modelo de pagamento</p>
-              <select
-                value={salaryType}
-                onChange={(e) => setSalaryType(e.target.value)}
-              >
-                <option value="" disabled>
-                  Escolha uma opção
-                </option>
-                <option value="Por Hora">Por Hora</option>
-                <option value="Por Mês">Por Mês</option>
-                <option value="Por Ano">Por Ano</option>
-                <option value="Fixo">Fixo</option>
-              </select>
+              <div className="container-inputsPayments">
+                <input
+                  type="checkbox"
+                  id="hideSalary"
+                  checked={hideSalary}
+                  onChange={(e) => setHideSalary(e.target.checked)}
+                />
+                <label htmlFor="hideSalary">esconder salário</label>
+              </div>
+
+              <div className="container-modelPayments">
+                <p>Modelo de pagamento</p>
+                <select
+                  value={salaryType}
+                  onChange={(e) => setSalaryType(e.target.value)}
+                >
+                  <option value="" disabled>
+                    Escolha uma opção
+                  </option>
+                  <option value="Por Hora">Por Hora</option>
+                  <option value="Por Mês">Por Mês</option>
+                  <option value="Por Ano">Por Ano</option>
+                  <option value="Fixo">Fixo</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

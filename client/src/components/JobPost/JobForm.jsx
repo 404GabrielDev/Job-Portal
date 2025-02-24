@@ -5,17 +5,16 @@ import JobDetails from "./JobDetails";
 import JobLocation from "./JobLocation";
 import JobSkills from "./JobSkills";
 import JobTitle from "./JobTitle";
-import useJobContext from '../../context/UseJobContext'
+import useJobContext from "../../context/UseJobContext";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import UseJobContext from "../../context/UseJobContext";
-import {toast} from 'react-hot-toast'
+import { toast } from "react-hot-toast";
 
-
-const JobForm = ({isEditing}) => {
-  const {jobId} = useParams()
-  const navigate = useNavigate()
+const JobForm = ({ isEditing }) => {
+  const { jobId } = useParams();
+  const navigate = useNavigate();
 
   const {
     jobTitle,
@@ -28,29 +27,27 @@ const JobForm = ({isEditing}) => {
     negotiable,
     tags,
     globalisAuthenticated,
-    loading
+    loading,
   } = useGlobalContext();
 
   useEffect(() => {
-      if(!loading && !globalisAuthenticated) {
-        window.location.href = 'http://localhost:8000/login'
-      }
-    }, [globalisAuthenticated])
+    if (!loading && !globalisAuthenticated) {
+      window.location.href = "http://localhost:8000/login";
+    }
+  }, [globalisAuthenticated]);
 
-  const{createJob} = useJobContext()
+  const { createJob } = useJobContext();
 
   const sections = ["About", "Job Details", "Skills", "Location", "Summary"];
   const [currentSection, setCurrentSection] = React.useState(sections[0]);
 
-    /*const handleDescriptionChange = (content) => {
+  /*const handleDescriptionChange = (content) => {
       setJobData({...jobData, description: content})
     }*/
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
   };
-
-  
 
   const renderStages = () => {
     switch (currentSection) {
@@ -89,89 +86,91 @@ const JobForm = ({isEditing}) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(isEditing) {
-      await axios.put(`/api/v1/jobs/${jobId}`, jobData)
+    if (isEditing) {
+      await axios.put(`/api/v1/jobs/${jobId}`, jobData);
       toast.success("Vaga Atualizada com sucesso!");
-      navigate('/myjobs')
+      navigate("/myjobs");
     } else {
-      createJob(
-        {
-          title: jobTitle,
-          description: jobDescription,
-          salaryType,
-          jobType: activeEmployementTypes,
-          salary,
-          location: `${location.address}, ${location.city}, ${location.country}`,
-          skills,
-          negotiable,
-          tags,
-        }
-      )
-      navigate('/')
+      createJob({
+        title: jobTitle,
+        description: jobDescription,
+        salaryType,
+        jobType: activeEmployementTypes,
+        salary,
+        location: `${location.address}, ${location.city}, ${location.country}`,
+        skills,
+        negotiable,
+        tags,
+      });
+      navigate("/");
     }
-  }
+  };
 
   return (
     <>
-      <div className="createPost-job">
-        <h1>{isEditing ? "Editar vaga" : "Criar/publicar uma Vaga"}</h1>
-      </div>
-
-      <div className="container-pageAll">
-        <div>
-          <div className="container-sections">
-            {sections.map((section, index) => (
-              <div className="container-buttonsSection" key={index}>
-                <button
-                  key={index}
-                  className={`button ${
-                    currentSection === section ? "active" : ""
-                  }`}
-                  onClick={() => handleSectionChange(section)}
-                >
-                  {index + 1}
-                </button>
-                <p onClick={() => handleSectionChange(section)}>{section}</p>
-                {currentSection === section && (
-                  <span
-                    className={`circle ${
-                      currentSection === section ? "selected" : ""
-                    }${getCompletedcolor(section)}`}
-                  >
-                    🟢
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+      <div className="container-JobFormAll">
+        <div className="createPost-job">
+          <h1>{isEditing ? "Editar vaga" : "Criar/publicar uma Vaga"}</h1>
         </div>
 
-        <section className="container-formDetails">
-          <form action="" onSubmit={handleSubmit}>
-            {renderStages()}
-            <div id="button-nextSections">
-              {currentSection !== "Summary" && (
-                <button
-                id="button-next"
-                  onClick={() => {
-                    const currentIndex = sections.indexOf(currentSection);
+        <div className="container-pageAll">
+          <div>
+            <div className="container-sections">
+              {sections.map((section, index) => (
+                <div className="container-buttonsSection" key={index}>
+                  <button
+                    key={index}
+                    className={`button ${
+                      currentSection === section ? "active" : ""
+                    }`}
+                    onClick={() => handleSectionChange(section)}
+                  >
+                    {index + 1}
+                  </button>
+                  <p onClick={() => handleSectionChange(section)}>{section}</p>
+                  {currentSection === section && (
+                    <span
+                      className={`circle ${
+                        currentSection === section ? "selected" : ""
+                      }${getCompletedcolor(section)}`}
+                    >
+                      🟢
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
 
-                    setCurrentSection(sections[currentIndex + 1])
-                  }}
-                  type="button"
-                >
-                  Next
+          <section className="container-formDetails">
+            <form action="" onSubmit={handleSubmit}>
+              {renderStages()}
+              <div id="button-nextSections">
+                {currentSection !== "Summary" && (
+                  <button
+                    id="button-next"
+                    onClick={() => {
+                      const currentIndex = sections.indexOf(currentSection);
+
+                      setCurrentSection(sections[currentIndex + 1]);
+                    }}
+                    type="button"
+                  >
+                    Next
+                  </button>
+                )}
+              </div>
+
+              {currentSection === "Summary" && (
+                <button id="btn-postJob" type="submit">
+                  Post Job
                 </button>
               )}
-            </div>
-
-            {currentSection === "Summary" && (
-              <button id="btn-postJob" type="submit">Post Job</button>
-            )}
-          </form>
-        </section>
+            </form>
+          </section>
+        </div>
       </div>
     </>
   );

@@ -7,11 +7,19 @@ import { useNavigate } from "react-router-dom";
 const JobCard = ({ job }) => {
   const navigate = useNavigate();
   const { deleteJob } = UseJobContext();
-  
+
+  console.log(job);
+
   return (
     <div className="card-jobItem">
+      {console.log("Imagem do usuário:", job?.createdBy?.profilePicture)}
+
       <img
-        src={job?.createdBy?.profilePicture || "/profile-user.png"}
+        src={
+          job?.createdBy?.profilePicture
+            ? job.createdBy.profilePicture
+            : "/profile-user.png"
+        }
         alt="iconUser"
         style={{ width: "50px", height: "50px", borderRadius: "50%" }}
       />

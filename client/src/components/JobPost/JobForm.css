@@ -1,5 +1,13 @@
 /* Estilizando o botão normalmente */
 
+.container-JobFormAll {
+  background-color: #000;
+  background-image: url('/backgroundGolden.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .createPost-job {
   padding: 0.5rem;
   color: #fff;

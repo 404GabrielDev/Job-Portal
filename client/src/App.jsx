@@ -9,6 +9,7 @@ import JobForm from "./components/JobPost/JobForm"
 import { Toaster } from "react-hot-toast"
 import Page from './components/jobs/[[id]]/Page'
 import EditJob from "./components/EditJob/EditJob"
+import Footer from "./components/Footer/Footer"
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/edit-job/:id" element={<EditJob />} /> {/* <- Adicione essa rota */}
         <Route path="/searchjobs" element={<SearchJobs />} />
       </Routes>
+      <Footer />
     </>
   )
 }

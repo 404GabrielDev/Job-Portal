@@ -1,5 +1,9 @@
 .containerAll-myJobs {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  background-image: url("/backgroundFooter.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .button-topMyJobs {
@@ -21,9 +25,9 @@
 }
 
 .border:hover {
-    background-color: #000;
-    color: #f60;
-    scale: 1.1;
+  background-color: #000;
+  color: #f60;
+  scale: 1.1;
 }
 
 .border-transparent {
@@ -36,5 +40,4 @@
   border-color: gray; /* Borda cinza quando inativo */
   background-color: #fff;
   color: #000;
-  
 }

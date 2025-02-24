@@ -249,6 +249,8 @@
   gap: 1rem;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .containerAll-elementSkills {

@@ -47,8 +47,6 @@ const JobCard = ({ job, activeJob }) => {
     setIsLiked(job.likes.includes(userProfile._id));
   }, [job.likes, userProfile._id]);
 
-  console.log("Job aqui", job)
-
   const companyDescription = job?.skills.join(", ");
 
   const cardBorderColor = activeJob ? "#6a0dad" : "#fff";

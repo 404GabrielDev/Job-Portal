@@ -1,8 +1,14 @@
 .containerAll-Home {
     width: 100%;
     height: 100vh;
-    margin-top: 2rem;
     font-family: 'Signika', sans-serif;
+    background-color: #000;
+    background-image: url('/backgroundHome.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2rem 0rem;
+    box-shadow: 5px 5px 15px #000;
 }
 
 .container-searchJobs {
