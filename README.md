@@ -5,6 +5,17 @@
 
 O **Job Portal MERN** é uma aplicação web desenvolvida com a stack MERN (MongoDB, Express.js, React e Node.js), permitindo que usuários possam se cadastrar, logar e gerenciar vagas de emprego. A plataforma utiliza **Auth0** para autenticação segura dos usuários.
 
+#### Screenshots do Projeto:
+
+### **Página Principal**
+![Página Principal](screenshots/PageHome.png)
+
+### **Postar Vagas**
+![Postar Vagas](screenshots/postJob.png)
+
+### **Detalhes da Vaga**
+![Detalhes da Vaga](screenshots/jobDetails.png)
+
 ### Funcionalidades
 
 - **Autenticação com Auth0**: Login seguro através da plataforma Auth0.
