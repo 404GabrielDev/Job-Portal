@@ -243,6 +243,22 @@
   
 }
 
+.containerElementTags {
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.containerAll-elementTags{
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
 .containerElementSkills {
   padding: 0.5rem;
   display: flex;

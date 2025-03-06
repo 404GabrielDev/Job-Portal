@@ -97,7 +97,7 @@ const JobSkills = () => {
               />
 
               <button type="button" onClick={handleAddTag}>
-                Adicionar Habilidade
+                Adicionar Tags
               </button>
             </div>
           </div>

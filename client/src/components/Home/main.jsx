@@ -83,9 +83,9 @@ const Home = () => {
               image="/iconRec.png"
               title="Banco de Talentos"
               description="Empregadores têm acesso a uma variedade de candidatos qualificados."
-              information1="1M+ Registered Job Seekers"
-              information2="Advanced search filters"
-              information3="AI-powered matching"
+              information1="1M+ Candidatos Registrados"
+              information2="Filtros de pesquisas avançados"
+              information3="Matching impulsionado por IA"
               button="Postar Um Trabalho"
             />
           </div>

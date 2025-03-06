@@ -112,7 +112,7 @@ const JobForm = ({ isEditing }) => {
     <>
       <div className="container-JobFormAll">
         <div className="createPost-job">
-          <h1>{isEditing ? "Editar vaga" : "Criar/publicar uma Vaga"}</h1>
+          <h1 id="title-createPost">{isEditing ? "Editar vaga" : "Criar/publicar uma Vaga"}</h1>
         </div>
 
         <div className="container-pageAll">

@@ -208,7 +208,7 @@ const Page = () => {
             </p>
           </div>
 
-          <div className="containerAll-elementSkills">
+          <div className="containerAll-elementTags">
             <h3>Tags</h3>
             <p>Other Relevant tags for the job position</p>
 

@@ -12,7 +12,6 @@ const JobCard = ({ job }) => {
 
   return (
     <div className="card-jobItem">
-      {console.log("Imagem do usuário:", job?.createdBy?.profilePicture)}
 
       <img
         src={

@@ -139,7 +139,7 @@ const Header = () => {
         </>
       ) : (
         <>
-          <a href={"http://localhost:8000/login"}>Login</a>
+          <a id="nav-login" href={"http://localhost:8000/login"}>Login</a>
         </>
       )}
     </header>

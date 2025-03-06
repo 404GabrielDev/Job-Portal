@@ -152,3 +152,17 @@ header {
 .container-configProfile img {
   max-width: 20px;
 }
+
+#nav-login {
+  text-decoration: none;
+  color: #fff;
+  padding: .5rem;
+  border: 2px solid transparent;
+  transition: scale .5s ease, color .5s ease, border .5s ease, border-radius .5s ease;
+}
+#nav-login:hover {
+  scale: 1.1;
+  color: #f70;
+  border: 2px solid #149fe9;
+  border-radius: .5rem;
+}
